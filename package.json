@@ -1,20 +1,31 @@
 {
-    "private": true,
-    "scripts": {
-        "dev": "vite",
-        "build": "vite build",
-        "serve": "vite preview"
-    },
-    "devDependencies": {
-        "@vitejs/plugin-vue": "^2.0.1",
-        "@vue/compiler-sfc": "^3.2.26",
-        "axios": "^0.24.0",
-        "laravel-vite": "^0.0.23",
-        "lodash": "^4.17.21",
-        "postcss": "^8.4.5",
-        "vite": "^2.7.6"
-    },
-    "dependencies": {
-        "vue": "^3.2.26"
-    }
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "lint": "eslint \"**/*.{vue,ts,js}\" --ignore-path .gitignore",
+    "format": "prettier -w -u .",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.8.0",
+    "@typescript-eslint/parser": "^5.8.0",
+    "@vitejs/plugin-vue": "^2.0.1",
+    "@vue/compiler-sfc": "^3.2.26",
+    "@vue/eslint-config-typescript": "^10.0.0",
+    "axios": "^0.24.0",
+    "eslint": "^8.5.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-vue": "^8.2.0",
+    "laravel-vite": "^0.0.23",
+    "lodash": "^4.17.21",
+    "postcss": "^8.4.5",
+    "prettier": "2.5.1",
+    "typescript": "^4.5.4",
+    "vite": "^2.7.6"
+  },
+  "dependencies": {
+    "vue": "^3.2.26"
+  }
 }
