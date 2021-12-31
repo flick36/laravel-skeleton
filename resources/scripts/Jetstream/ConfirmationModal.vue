@@ -27,7 +27,7 @@
       </div>
     </div>
 
-    <div class="px-6 py-4 text-right bg-gray-100">
+    <div class="flex flex-row justify-end px-6 py-4 text-right bg-gray-100">
       <slot name="footer"> </slot>
     </div>
   </modal>

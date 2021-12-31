@@ -147,7 +147,7 @@
         <jet-secondary-button @click="managingPermissionsFor = null"> Cancel </jet-secondary-button>
 
         <jet-button
-          class="ml-2"
+          class="ml-3"
           :class="{ 'opacity-25': updateApiTokenForm.processing }"
           :disabled="updateApiTokenForm.processing"
           @click="updateApiToken"
@@ -170,7 +170,7 @@
         <jet-secondary-button @click="apiTokenBeingDeleted = null"> Cancel </jet-secondary-button>
 
         <jet-danger-button
-          class="ml-2"
+          class="ml-3"
           :class="{ 'opacity-25': deleteApiTokenForm.processing }"
           :disabled="deleteApiTokenForm.processing"
           @click="deleteApiToken"

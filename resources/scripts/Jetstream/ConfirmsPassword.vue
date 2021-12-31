@@ -30,7 +30,7 @@
         <jet-secondary-button @click="closeModal"> Cancel </jet-secondary-button>
 
         <jet-button
-          class="ml-2"
+          class="ml-3"
           :class="{ 'opacity-25': form.processing }"
           :disabled="form.processing"
           @click="confirmPassword"

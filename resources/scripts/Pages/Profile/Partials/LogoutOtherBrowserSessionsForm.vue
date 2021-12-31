@@ -52,7 +52,8 @@
 
           <div class="ml-3">
             <div class="text-sm text-gray-600">
-              {{ session.agent.platform }} - {{ session.agent.browser }}
+              {{ session.agent.platform ? session.agent.platform : 'Unknown' }} -
+              {{ session.agent.browser ? session.agent.browser : 'Uknown' }}
             </div>
 
             <div>
@@ -101,7 +102,7 @@
           <jet-secondary-button @click="closeModal"> Cancel </jet-secondary-button>
 
           <jet-button
-            class="ml-2"
+            class="ml-3"
             :class="{ 'opacity-25': form.processing }"
             :disabled="form.processing"
             @click="logoutOtherBrowserSessions"
