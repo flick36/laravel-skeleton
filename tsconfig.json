@@ -1,24 +1,25 @@
 {
-  "compilerOptions": {
-    "target": "esnext",
-    "useDefineForClassFields": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "isolatedModules": true,
-    "strict": true,
-    "jsx": "preserve",
-    "sourceMap": true,
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
-    "skipLibCheck": true,
-    "types": ["vite/client"],
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["resources/*"]
-    }
-  },
-  "include": ["resources/**/*"]
+    "compilerOptions": {
+        "baseUrl": ".",
+        "module": "esnext",
+        "target": "es2016",
+        "lib": ["dom", "esnext"],
+        "strict": true,
+        "esModuleInterop": true,
+        "incremental": false,
+        "skipLibCheck": true,
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "noUnusedLocals": true,
+        "strictNullChecks": true,
+        "forceConsistentCasingInFileNames": true,
+        "types": [
+            "vite/client",
+            "vue/ref-macros"
+        ],
+        "paths": {
+            "@/*": ["resources/scripts/*"]
+        }
+    },
+    "exclude": ["dist", "node_modules", "vendor", "cypress"]
 }

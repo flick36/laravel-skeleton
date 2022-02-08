@@ -1,5 +1,14 @@
-import '@inertiajs/inertia'
-import { Team, User } from './models'
+import type { JetstreamUser } from '@/types'
+
+declare interface Window {
+  // extend the window
+}
+
+declare module '*.vue' {
+  import type { DefineComponent } from 'vue'
+  const component: DefineComponent<{}, {}, any>
+  export default component
+}
 
 declare module '@inertiajs/inertia' {
   export interface PageProps {
@@ -8,20 +17,13 @@ declare module '@inertiajs/inertia' {
       canManageTwoFactorAuthentication: boolean
       canUpdatePassword: boolean
       canUpdateProfileInformation: boolean
-      flash: { [key: string]: unknown }
+      flash: Record<string, unknown>
       hasAccountDeletionFeatures: boolean
       hasApiFeatures: boolean
       hasTeamFeatures: boolean
       hasTermsAndPrivacyPolicyFeature: boolean
       managesProfilePhotos: boolean
     }
-    user:
-      | (User & {
-          all_teams: Team[]
-          current_team: Team
-          two_factor_enabled: boolean
-          profile_photo_url: string
-        })
-      | null
+    user: JetstreamUser | null
   }
 }

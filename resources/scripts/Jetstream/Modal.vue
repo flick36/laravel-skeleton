@@ -1,3 +1,56 @@
+<script setup lang="ts">
+import { onMounted, onUnmounted, watch } from 'vue'
+
+interface Props {
+  show: boolean
+  maxWidth: string
+  closeable: boolean
+}
+
+const {
+  show = false,
+  maxWidth = '2xl',
+  closeable = true,
+} = defineProps<Props>()
+
+const emit = defineEmits<{ (e: 'close'): void }>()
+
+watch(() => show, () => {
+  if (show)
+    document.body.style.overflow = 'hidden'
+  else
+    document.body.style.overflow = ''
+},
+)
+
+const close = () => {
+  if (closeable)
+    emit('close')
+}
+
+const closeOnEscape = (e: KeyboardEvent) => {
+  if (e.key === 'Escape' && show)
+    close()
+}
+
+onMounted(() => document.addEventListener('keydown', closeOnEscape))
+
+onUnmounted(() => {
+  document.removeEventListener('keydown', closeOnEscape)
+  document.body.style.overflow = ''
+})
+
+const maxWidthClass = $computed(() => {
+  return {
+    'sm': 'sm:max-w-sm',
+    'md': 'sm:max-w-md',
+    'lg': 'sm:max-w-lg',
+    'xl': 'sm:max-w-xl',
+    '2xl': 'sm:max-w-2xl',
+  }[maxWidth]
+})
+</script>
+
 <template>
   <teleport to="body">
     <transition leave-active-class="duration-200">
@@ -11,7 +64,7 @@
           leave-to-class="opacity-0"
         >
           <div v-show="show" class="fixed inset-0 transition-all transform" @click="close">
-            <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+            <div class="absolute inset-0 bg-gray-500 opacity-75" />
           </div>
         </transition>
 
@@ -23,72 +76,11 @@
           leave-from-class="translate-y-0 opacity-100 sm:scale-100"
           leave-to-class="translate-y-4 opacity-0 sm:translate-y-0 sm:scale-95"
         >
-          <div
-            v-show="show"
-            class="mb-6 overflow-hidden transition-all transform bg-white rounded-lg shadow-xl sm:w-full sm:mx-auto"
-            :class="maxWidthClass"
-          >
-            <slot v-if="show"></slot>
+          <div v-show="show" class="mb-6 overflow-hidden transition-all transform bg-white rounded-lg shadow-xl sm:w-full sm:mx-auto" :class="maxWidthClass">
+            <slot v-if="show" />
           </div>
         </transition>
       </div>
     </transition>
   </teleport>
 </template>
-
-<script setup lang="ts">
-import { computed, onMounted, onUnmounted, watch } from 'vue'
-
-interface Props {
-  show: boolean
-  maxWidth: string
-  closeable: boolean
-}
-
-const props = withDefaults(defineProps<Props>(), {
-  show: false,
-  maxWidth: '2xl',
-  closeable: true,
-})
-
-const maxWidthClass = computed(() => {
-  return {
-    sm: 'sm:max-w-sm',
-    md: 'sm:max-w-md',
-    lg: 'sm:max-w-lg',
-    xl: 'sm:max-w-xl',
-    '2xl': 'sm:max-w-2xl',
-  }[props.maxWidth]
-})
-
-const emit = defineEmits<{
-  (e: 'close'): void
-}>()
-
-watch(
-  () => props.show,
-  () => {
-    if (props.show) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = ''
-    }
-  }
-)
-
-const close = () => {
-  if (props.closeable) emit('close')
-}
-
-const closeOnEscape = (e: KeyboardEvent) => {
-  if (e.key === 'Escape' && props.show) {
-    close()
-  }
-}
-
-onMounted(() => document.addEventListener('keydown', closeOnEscape))
-onUnmounted(() => {
-  document.removeEventListener('keydown', closeOnEscape)
-  document.body.style.overflow = ''
-})
-</script>

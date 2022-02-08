@@ -29,7 +29,5 @@ class AppServiceProvider extends ServiceProvider
         Model::preventLazyLoading(! app()->isProduction());
 
         Relation::requireMorphMap();
-
-        Validator::excludeUnvalidatedArrayKeys();
     }
 }

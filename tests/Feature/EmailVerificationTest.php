@@ -8,9 +8,7 @@ use Illuminate\Support\Facades\URL;
 use Laravel\Fortify\Features;
 
 test('email verification screen can be rendered', function () {
-    $user = User::factory()->withPersonalTeam()->create([
-        'email_verified_at' => null,
-    ]);
+    $user = User::factory()->withPersonalTeam()->unverified()->create();
 
     $response = $this->actingAs($user)->get('/email/verify');
 
@@ -22,9 +20,7 @@ test('email verification screen can be rendered', function () {
 test('email can be verified', function () {
     Event::fake();
 
-    $user = User::factory()->create([
-        'email_verified_at' => null,
-    ]);
+    $user = User::factory()->unverified()->create();
 
     $verificationUrl = URL::temporarySignedRoute(
         'verification.verify',
@@ -43,9 +39,7 @@ test('email can be verified', function () {
 }, 'Email verification not enabled.');
 
 test('email can not verified with invalid hash', function () {
-    $user = User::factory()->create([
-        'email_verified_at' => null,
-    ]);
+    $user = User::factory()->unverified()->create();
 
     $verificationUrl = URL::temporarySignedRoute(
         'verification.verify',

@@ -1,15 +1,28 @@
+<script setup lang="ts">
+import { Head, Link, useForm } from '@inertiajs/inertia-vue3'
+import JetAuthenticationCard from '@/Jetstream/AuthenticationCard.vue'
+import JetAuthenticationCardLogo from '@/Jetstream/AuthenticationCardLogo.vue'
+import JetButton from '@/Jetstream/Button.vue'
+
+const { status } = defineProps<{ status: string }>()
+
+const form = useForm({})
+
+const submit = () => form.post('/verification.send')
+
+const verificationLinkSent = $computed(() => status === 'verification-link-sent')
+</script>
+
 <template>
   <Head title="Email Verification" />
 
-  <jet-authentication-card>
+  <JetAuthenticationCard>
     <template #logo>
-      <jet-authentication-card-logo />
+      <JetAuthenticationCardLogo />
     </template>
 
     <div class="mb-4 text-sm text-gray-600">
-      Thanks for signing up! Before getting started, could you verify your email address by clicking
-      on the link we just emailed to you? If you didn't receive the email, we will gladly send you
-      another.
+      Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn't receive the email, we will gladly send you another.
     </div>
 
     <div v-if="verificationLinkSent" class="mb-4 text-sm font-medium text-green-600">
@@ -18,36 +31,19 @@
 
     <form @submit.prevent="submit">
       <div class="flex items-center justify-between mt-4">
-        <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+        <JetButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
           Resend Verification Email
-        </jet-button>
+        </JetButton>
 
         <Link
-          href="/logout"
+          href="'/logout'"
           method="post"
           as="button"
           class="text-sm text-gray-600 underline hover:text-gray-900"
-          >Log Out</Link
         >
+          Log Out
+        </Link>
       </div>
     </form>
-  </jet-authentication-card>
+  </JetAuthenticationCard>
 </template>
-
-<script setup lang="ts">
-import JetAuthenticationCard from '@/scripts/Jetstream/AuthenticationCard.vue'
-import JetAuthenticationCardLogo from '@/scripts/Jetstream/AuthenticationCardLogo.vue'
-import JetButton from '@/scripts/Jetstream/Button.vue'
-import { Head, Link, useForm } from '@inertiajs/inertia-vue3'
-import { computed } from 'vue'
-
-const props = defineProps<{
-  status: string
-}>()
-
-const form = useForm({})
-
-const submit = () => form.post('/verification.send')
-
-const verificationLinkSent = computed(() => props.status === 'verification-link-sent')
-</script>

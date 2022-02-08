@@ -1,22 +1,46 @@
+<script setup lang="ts">
+import { Head, useForm } from '@inertiajs/inertia-vue3'
+import JetAuthenticationCard from '@/Jetstream/AuthenticationCard.vue'
+import JetAuthenticationCardLogo from '@/Jetstream/AuthenticationCardLogo.vue'
+import JetButton from '@/Jetstream/Button.vue'
+import JetInput from '@/Jetstream/Input.vue'
+import JetLabel from '@/Jetstream/Label.vue'
+import JetValidationErrors from '@/Jetstream/ValidationErrors.vue'
+
+const form = useForm({ password: '' })
+
+const passwordInput = $ref<InstanceType<typeof JetInput> | null>(null)
+
+const submit = () =>
+  form.post('/user/confirm-password', {
+    onFinish: () => {
+      form.reset()
+
+      passwordInput?.focus()
+    },
+  })
+</script>
+
 <template>
   <Head title="Secure Area" />
 
-  <jet-authentication-card>
+  <JetAuthenticationCard>
     <template #logo>
-      <jet-authentication-card-logo />
+      <JetAuthenticationCardLogo />
     </template>
 
     <div class="mb-4 text-sm text-gray-600">
       This is a secure area of the application. Please confirm your password before continuing.
     </div>
 
-    <jet-validation-errors class="mb-4" />
+    <JetValidationErrors class="mb-4" />
 
     <form @submit.prevent="submit">
       <div>
-        <jet-label for="password" value="Password" />
-        <jet-input
+        <JetLabel for="password" value="Password" />
+        <JetInput
           id="password"
+          ref="passwordInput"
           v-model="form.password"
           type="password"
           class="block w-full mt-1"
@@ -27,33 +51,10 @@
       </div>
 
       <div class="flex justify-end mt-4">
-        <jet-button
-          class="ml-4"
-          :class="{ 'opacity-25': form.processing }"
-          :disabled="form.processing"
-        >
+        <JetButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
           Confirm
-        </jet-button>
+        </JetButton>
       </div>
     </form>
-  </jet-authentication-card>
+  </JetAuthenticationCard>
 </template>
-
-<script setup lang="ts">
-import JetAuthenticationCard from '@/scripts/Jetstream/AuthenticationCard.vue'
-import JetAuthenticationCardLogo from '@/scripts/Jetstream/AuthenticationCardLogo.vue'
-import JetButton from '@/scripts/Jetstream/Button.vue'
-import JetInput from '@/scripts/Jetstream/Input.vue'
-import JetLabel from '@/scripts/Jetstream/Label.vue'
-import JetValidationErrors from '@/scripts/Jetstream/ValidationErrors.vue'
-import { Head, useForm } from '@inertiajs/inertia-vue3'
-
-const form = useForm({
-  password: '',
-})
-
-const submit = () =>
-  form.post('/user/confirm-password', {
-    onFinish: () => form.reset(),
-  })
-</script>

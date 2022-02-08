@@ -1,22 +1,19 @@
+<script setup lang="ts">
+import { usePage } from '@inertiajs/inertia-vue3'
+
+const show = $ref(true)
+
+const style = $computed(() => usePage().props.value.jetstream.flash?.bannerStyle || 'success')
+const message = $computed(() => usePage().props.value.jetstream.flash?.banner || '')
+</script>
+
 <template>
   <div>
-    <div
-      v-if="show && message"
-      :class="{
-        'bg-indigo-500': style == 'success',
-        'bg-red-700': style == 'danger',
-      }"
-    >
+    <div v-if="show && message" :class="{ 'bg-indigo-500': style == 'success', 'bg-red-700': style == 'danger' }">
       <div class="max-w-screen-xl px-3 py-2 mx-auto sm:px-6 lg:px-8">
         <div class="flex flex-wrap items-center justify-between">
           <div class="flex items-center flex-1 w-0 min-w-0">
-            <span
-              class="flex p-2 rounded-lg"
-              :class="{
-                'bg-indigo-600': style == 'success',
-                'bg-red-600': style == 'danger',
-              }"
-            >
+            <span class="flex p-2 rounded-lg" :class="{ 'bg-indigo-600': style == 'success', 'bg-red-600': style == 'danger' }">
               <svg
                 v-if="style == 'success'"
                 class="w-5 h-5 text-white"
@@ -32,7 +29,6 @@
                   d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
-
               <svg
                 v-if="style == 'danger'"
                 class="w-5 h-5 text-white"
@@ -49,20 +45,15 @@
                 />
               </svg>
             </span>
-
             <p class="ml-3 text-sm font-medium text-white truncate">
               {{ message }}
             </p>
           </div>
-
           <div class="shrink-0 sm:ml-3">
             <button
               type="button"
               class="flex p-2 -mr-1 transition rounded-md focus:outline-none sm:-mr-2"
-              :class="{
-                'hover:bg-indigo-600 focus:bg-indigo-600': style == 'success',
-                'hover:bg-red-600 focus:bg-red-600': style == 'danger',
-              }"
+              :class="{ 'hover:bg-indigo-600 focus:bg-indigo-600': style == 'success', 'hover:bg-red-600 focus:bg-red-600': style == 'danger' }"
               aria-label="Dismiss"
               @click.prevent="show = false"
             >
@@ -87,13 +78,3 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import { usePage } from '@inertiajs/inertia-vue3'
-import { computed, ref } from 'vue'
-
-const show = ref(true)
-
-const style = computed(() => usePage().props.value.jetstream.flash?.bannerStyle || 'success')
-const message = computed(() => usePage().props.value.jetstream.flash?.banner || '')
-</script>

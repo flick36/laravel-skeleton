@@ -1,9 +1,22 @@
+<script setup lang="ts">
+import { useSlots } from 'vue'
+import JetSectionTitle from './SectionTitle.vue'
+
+const hasActions = $computed(() => !!useSlots().actions)
+
+defineEmits<{ (e: 'submitted'): void }>()
+</script>
+
 <template>
   <div class="md:grid md:grid-cols-3 md:gap-6">
-    <jet-section-title>
-      <template #title><slot name="title"></slot></template>
-      <template #description><slot name="description"></slot></template>
-    </jet-section-title>
+    <JetSectionTitle>
+      <template #title>
+        <slot name="title" />
+      </template>
+      <template #description>
+        <slot name="description" />
+      </template>
+    </JetSectionTitle>
 
     <div class="mt-5 md:mt-0 md:col-span-2">
       <form @submit.prevent="$emit('submitted')">
@@ -12,30 +25,14 @@
           :class="hasActions ? 'sm:rounded-tl-md sm:rounded-tr-md' : 'sm:rounded-md'"
         >
           <div class="grid grid-cols-6 gap-6">
-            <slot name="form"></slot>
+            <slot name="form" />
           </div>
         </div>
 
-        <div
-          v-if="hasActions"
-          class="flex items-center justify-end px-4 py-3 text-right shadow bg-gray-50 sm:px-6 sm:rounded-bl-md sm:rounded-br-md"
-        >
-          <slot name="actions"></slot>
+        <div v-if="hasActions" class="flex items-center justify-end px-4 py-3 text-right shadow bg-gray-50 sm:px-6 sm:rounded-bl-md sm:rounded-br-md">
+          <slot name="actions" />
         </div>
       </form>
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import { computed, useSlots } from 'vue'
-import JetSectionTitle from './SectionTitle.vue'
-
-const slots = useSlots()
-
-const hasActions = computed(() => slots.actions)
-
-defineEmits<{
-  (e: 'submitted'): void
-}>()
-</script>

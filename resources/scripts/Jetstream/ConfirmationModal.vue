@@ -1,11 +1,39 @@
+<script setup lang="ts">
+import Modal from './Modal.vue'
+
+interface Props {
+  show: boolean
+  maxWidth?: string
+  closeable?: boolean
+}
+
+const {
+  show = false,
+  maxWidth = '2xl',
+  closeable = true,
+} = defineProps<Props>()
+
+const emit = defineEmits<{ (e: 'close'): void }>()
+
+const close = () => emit('close')
+</script>
+
 <template>
-  <modal :show="show" :max-width="maxWidth" :closeable="closeable" @close="close">
+  <Modal
+    :show="show"
+    :max-width="maxWidth"
+    :closeable="closeable"
+    @close="close"
+  >
     <div class="px-4 pt-5 pb-4 bg-white sm:p-6 sm:pb-4">
       <div class="sm:flex sm:items-start">
-        <div
-          class="flex items-center justify-center w-12 h-12 mx-auto bg-red-100 rounded-full shrink-0 sm:mx-0 sm:h-10 sm:w-10"
-        >
-          <svg class="w-6 h-6 text-red-600" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+        <div class="flex items-center justify-center w-12 h-12 mx-auto bg-red-100 rounded-full shrink-0 sm:mx-0 sm:h-10 sm:w-10">
+          <svg
+            class="w-6 h-6 text-red-600"
+            stroke="currentColor"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -17,40 +45,18 @@
 
         <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
           <h3 class="text-lg">
-            <slot name="title"></slot>
+            <slot name="title" />
           </h3>
 
           <div class="mt-2">
-            <slot name="content"></slot>
+            <slot name="content" />
           </div>
         </div>
       </div>
     </div>
 
     <div class="flex flex-row justify-end px-6 py-4 text-right bg-gray-100">
-      <slot name="footer"> </slot>
+      <slot name="footer" />
     </div>
-  </modal>
+  </Modal>
 </template>
-
-<script setup lang="ts">
-import Modal from './Modal.vue'
-
-interface Props {
-  show: boolean
-  maxWidth?: string
-  closeable?: boolean
-}
-
-withDefaults(defineProps<Props>(), {
-  show: false,
-  maxWidth: '2xl',
-  closeable: true,
-})
-
-const emit = defineEmits<{
-  (e: 'close'): void
-}>()
-
-const close = () => emit('close')
-</script>

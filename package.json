@@ -1,38 +1,33 @@
 {
-  "private": true,
-  "scripts": {
-    "dev": "vite",
-    "lint": "eslint \"**/*.{vue,ts,js}\" --ignore-path .gitignore",
-    "format": "prettier -w -u .",
-    "build": "vite build",
-    "serve": "vite preview"
-  },
-  "devDependencies": {
-    "@inertiajs/inertia": "^0.10.1",
-    "@inertiajs/inertia-vue3": "^0.5.2",
-    "@inertiajs/progress": "^0.2.6",
-    "@tailwindcss/forms": "^0.4.0",
-    "@tailwindcss/typography": "^0.5.0",
-    "@typescript-eslint/eslint-plugin": "^5.8.0",
-    "@typescript-eslint/parser": "^5.8.0",
-    "@vitejs/plugin-vue": "^2.0.1",
-    "@vue/compiler-sfc": "^3.2.26",
-    "@vue/eslint-config-typescript": "^10.0.0",
-    "autoprefixer": "^10.4.0",
-    "axios": "^0.24.0",
-    "eslint": "^8.5.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-vue": "^8.2.0",
-    "laravel-vite": "^0.0.23",
-    "lodash": "^4.17.21",
-    "postcss": "^8.4.5",
-    "prettier": "2.5.1",
-    "tailwindcss": "^3.0.7",
-    "typescript": "^4.5.4",
-    "vite": "^2.7.7"
-  },
-  "dependencies": {
-    "vue": "^3.2.26"
-  }
+    "private": true,
+    "packageManager": "pnpm@6.32.4",
+    "scripts": {
+        "dev": "vite",
+        "lint": "eslint \"**/*.{vue,ts,js}\" --ignore-path .gitignore",
+        "build": "vite build",
+        "typecheck": "vue-tsc --noEmit"
+    },
+    "dependencies": {
+        "@inertiajs/inertia": "^0.11.0",
+        "@inertiajs/inertia-vue3": "^0.6.0",
+        "@inertiajs/progress": "^0.2.7",
+        "vue": "^3.2.31"
+    },
+    "devDependencies": {
+        "@antfu/eslint-config": "^0.20.2",
+        "@tailwindcss/forms": "^0.5.0",
+        "@tailwindcss/typography": "^0.5.2",
+        "@types/tailwindcss": "^3.0.10",
+        "@vitejs/plugin-vue": "^2.3.1",
+        "@vue/compiler-sfc": "^3.2.31",
+        "autoprefixer": "^10.4.4",
+        "axios": "^0.26.1",
+        "eslint": "^8.13.0",
+        "postcss": "^8.4.12",
+        "tailwindcss": "^3.0.23",
+        "typescript": "^4.6.3",
+        "vite": "^2.9.1",
+        "vite-plugin-laravel": "^0.2.0-beta.10",
+        "vue-tsc": "^0.33.9"
+    }
 }

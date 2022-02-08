@@ -1,11 +1,13 @@
-import '@/css/app.css'
+import { createApp, h } from 'vue'
 import { createInertiaApp } from '@inertiajs/inertia-vue3'
 import { InertiaProgress } from '@inertiajs/progress'
-import { createApp, h } from 'vue'
+
+const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel'
 
 createInertiaApp({
-  resolve: async (name) => {
-    return (await import(`./Pages/${name}.vue`)).default
+  title: title => `${title} - ${appName}`,
+  resolve: async(name) => {
+    return (await import(`./pages/${name}.vue`)).default
   },
   setup({ el, app, props, plugin }) {
     createApp({ render: () => h(app, props) })
