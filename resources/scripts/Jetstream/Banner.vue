@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { usePage } from '@inertiajs/inertia-vue3'
-
 const show = $ref(true)
 
 const style = $computed(() => usePage().props.value.jetstream.flash?.bannerStyle || 'success')

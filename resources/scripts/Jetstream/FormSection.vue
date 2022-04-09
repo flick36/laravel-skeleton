@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { useSlots } from 'vue'
 import JetSectionTitle from './SectionTitle.vue'
 
 const hasActions = $computed(() => !!useSlots().actions)

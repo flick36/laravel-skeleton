@@ -1,19 +1,42 @@
 import { defineConfig } from 'vite'
 import tailwindcss from 'tailwindcss'
 import autoprefixer from 'autoprefixer'
-import laravel from 'vite-plugin-laravel'
-import vue from '@vitejs/plugin-vue'
+import Laravel from 'vite-plugin-laravel'
+import Vue from '@vitejs/plugin-vue'
+import AutoImport from 'unplugin-auto-import/vite'
 
 export default defineConfig({
   plugins: [
-    vue({
+    Vue({
       reactivityTransform: true,
     }),
-    laravel({
+
+    Laravel({
       postcss: [
         tailwindcss(),
         autoprefixer(),
       ],
+    }),
+
+    // https://github.com/antfu/unplugin-auto-import
+    AutoImport({
+      imports: [
+        'vue',
+        'vue/macros',
+        // custom
+        {
+          '@inertiajs/inertia': ['Inertia'],
+          '@inertiajs/inertia-vue3': [
+            'App',
+            'plugin',
+            'createInertiaApp',
+            'useForm',
+            'useRemember',
+            'usePage',
+          ],
+        },
+      ],
+      dts: 'resources/scripts/auto-imports.d.ts',
     }),
   ],
 })

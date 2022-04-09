@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, watch } from 'vue'
-
 interface Props {
   show: boolean
   maxWidth: string

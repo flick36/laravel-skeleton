@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted } from 'vue'
-
 interface Props {
   align: string
   width: string

@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import { Inertia } from '@inertiajs/inertia'
-import { useForm, usePage } from '@inertiajs/inertia-vue3'
-import { watch } from 'vue'
 import JetActionSection from '@/Jetstream/ActionSection.vue'
 import JetButton from '@/Jetstream/Button.vue'
 import JetConfirmsPassword from '@/Jetstream/ConfirmsPassword.vue'

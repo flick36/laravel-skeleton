@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
-
 defineProps<{ modelValue: string }>()
 
 defineEmits<{ (e: 'update:modelValue', value: string): void }>()
