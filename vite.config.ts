@@ -27,6 +27,7 @@ export default defineConfig({
         // custom
         {
           '@inertiajs/inertia': ['Inertia'],
+          '@inertiajs/progress': ['InertiaProgress'],
           '@inertiajs/inertia-vue3': [
             'App',
             'plugin',
