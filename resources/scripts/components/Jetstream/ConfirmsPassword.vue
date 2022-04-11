@@ -1,9 +1,5 @@
 <script setup lang="ts">
-import JetButton from './Button.vue'
-import JetDialogModal from './DialogModal.vue'
-import JetInput from './Input.vue'
-import JetInputError from './InputError.vue'
-import JetSecondaryButton from './SecondaryButton.vue'
+import type JetInput from './Input.vue'
 import axios from '@/modules/axios'
 
 interface Props {

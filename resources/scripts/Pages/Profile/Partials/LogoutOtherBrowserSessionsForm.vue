@@ -1,11 +1,5 @@
 <script setup lang="ts">
-import JetActionMessage from '@/Jetstream/ActionMessage.vue'
-import JetActionSection from '@/Jetstream/ActionSection.vue'
-import JetButton from '@/Jetstream/Button.vue'
-import JetDialogModal from '@/Jetstream/DialogModal.vue'
-import JetInput from '@/Jetstream/Input.vue'
-import JetInputError from '@/Jetstream/InputError.vue'
-import JetSecondaryButton from '@/Jetstream/SecondaryButton.vue'
+import type JetInput from '@/Jetstream/Input.vue'
 import type { UserSession } from '@/types'
 
 defineProps<{ sessions: UserSession[] }>()

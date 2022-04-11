@@ -1,12 +1,5 @@
 <script setup lang="ts">
 import type { JetstreamUser } from '@/types'
-import JetButton from '@/Jetstream/Button.vue'
-import JetFormSection from '@/Jetstream/FormSection.vue'
-import JetInput from '@/Jetstream/Input.vue'
-import JetInputError from '@/Jetstream/InputError.vue'
-import JetLabel from '@/Jetstream/Label.vue'
-import JetActionMessage from '@/Jetstream/ActionMessage.vue'
-import JetSecondaryButton from '@/Jetstream/SecondaryButton.vue'
 
 const { user } = defineProps<{ user: JetstreamUser }>()
 

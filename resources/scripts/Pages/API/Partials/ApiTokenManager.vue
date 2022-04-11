@@ -1,17 +1,4 @@
 <script setup lang="ts">
-import JetActionMessage from '@/Jetstream/ActionMessage.vue'
-import JetActionSection from '@/Jetstream/ActionSection.vue'
-import JetButton from '@/Jetstream/Button.vue'
-import JetConfirmationModal from '@/Jetstream/ConfirmationModal.vue'
-import JetDangerButton from '@/Jetstream/DangerButton.vue'
-import JetDialogModal from '@/Jetstream/DialogModal.vue'
-import JetFormSection from '@/Jetstream/FormSection.vue'
-import JetInput from '@/Jetstream/Input.vue'
-import JetCheckbox from '@/Jetstream/Checkbox.vue'
-import JetInputError from '@/Jetstream/InputError.vue'
-import JetLabel from '@/Jetstream/Label.vue'
-import JetSecondaryButton from '@/Jetstream/SecondaryButton.vue'
-import JetSectionBorder from '@/Jetstream/SectionBorder.vue'
 import type { ApiToken, UserPermissions } from '@/types'
 
 const {

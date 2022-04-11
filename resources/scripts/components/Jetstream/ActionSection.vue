@@ -1,7 +1,3 @@
-<script setup lang="ts">
-import JetSectionTitle from './SectionTitle.vue'
-</script>
-
 <template>
   <div class="md:grid md:grid-cols-3 md:gap-6">
     <JetSectionTitle>

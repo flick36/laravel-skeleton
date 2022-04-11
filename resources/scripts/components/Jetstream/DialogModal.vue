@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import Modal from './Modal.vue'
-
 interface Props {
   show: boolean
   maxWidth?: string
@@ -19,7 +17,7 @@ const close = () => emit('close')
 </script>
 
 <template>
-  <Modal
+  <JetModal
     :show="show"
     :max-width="maxWidth"
     :closeable="closeable"
@@ -38,5 +36,5 @@ const close = () => emit('close')
     <div class="flex flex-row justify-end px-6 py-4 text-right bg-gray-100">
       <slot name="footer" />
     </div>
-  </Modal>
+  </JetModal>
 </template>

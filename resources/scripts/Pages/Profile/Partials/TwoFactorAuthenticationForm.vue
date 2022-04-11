@@ -1,12 +1,4 @@
 <script setup lang="ts">
-import JetActionSection from '@/Jetstream/ActionSection.vue'
-import JetButton from '@/Jetstream/Button.vue'
-import JetConfirmsPassword from '@/Jetstream/ConfirmsPassword.vue'
-import JetDangerButton from '@/Jetstream/DangerButton.vue'
-import JetInput from '@/Jetstream/Input.vue'
-import JetInputError from '@/Jetstream/InputError.vue'
-import JetLabel from '@/Jetstream/Label.vue'
-import JetSecondaryButton from '@/Jetstream/SecondaryButton.vue'
 import axios from '@/modules/axios'
 
 const { requiresConfirmation } = defineProps<{ requiresConfirmation: boolean }>()

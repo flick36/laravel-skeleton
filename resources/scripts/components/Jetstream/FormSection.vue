@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import JetSectionTitle from './SectionTitle.vue'
-
 const hasActions = $computed(() => !!useSlots().actions)
 
 defineEmits<{ (e: 'submitted'): void }>()

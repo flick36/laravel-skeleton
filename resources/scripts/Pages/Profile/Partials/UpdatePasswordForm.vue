@@ -1,10 +1,5 @@
 <script setup lang="ts">
-import JetActionMessage from '@/Jetstream/ActionMessage.vue'
-import JetButton from '@/Jetstream/Button.vue'
-import JetFormSection from '@/Jetstream/FormSection.vue'
-import JetInput from '@/Jetstream/Input.vue'
-import JetInputError from '@/Jetstream/InputError.vue'
-import JetLabel from '@/Jetstream/Label.vue'
+import type JetInput from '@/Jetstream/Input.vue'
 
 const passwordInput = $ref<InstanceType<typeof JetInput> | null>(null)
 const currentPasswordInput = $ref<InstanceType<typeof JetInput> | null>(null)

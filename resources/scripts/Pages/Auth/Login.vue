@@ -1,13 +1,4 @@
 <script setup lang="ts">
-import { Head, Link } from '@inertiajs/inertia-vue3'
-import JetAuthenticationCard from '@/Jetstream/AuthenticationCard.vue'
-import JetAuthenticationCardLogo from '@/Jetstream/AuthenticationCardLogo.vue'
-import JetButton from '@/Jetstream/Button.vue'
-import JetInput from '@/Jetstream/Input.vue'
-import JetCheckbox from '@/Jetstream/Checkbox.vue'
-import JetLabel from '@/Jetstream/Label.vue'
-import JetValidationErrors from '@/Jetstream/ValidationErrors.vue'
-
 defineProps<{
   canResetPassword: boolean
   status?: string

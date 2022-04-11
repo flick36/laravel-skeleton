@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { Link } from '@inertiajs/inertia-vue3'
-
 const { href, active } = defineProps<{
   href: string
   active: boolean

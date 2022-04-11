@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import AppLayout from '@/layouts/AppLayout.vue'
 import DeleteUserForm from '@/pages/profile/partials/DeleteUserForm.vue'
-import JetSectionBorder from '@/Jetstream/SectionBorder.vue'
 import LogoutOtherBrowserSessionsForm from '@/pages/profile/partials/LogoutOtherBrowserSessionsForm.vue'
 import TwoFactorAuthenticationForm from '@/pages/profile/partials/TwoFactorAuthenticationForm.vue'
 import UpdatePasswordForm from '@/pages/profile/partials/UpdatePasswordForm.vue'

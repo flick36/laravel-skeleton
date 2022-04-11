@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import { Head } from '@inertiajs/inertia-vue3'
-import JetAuthenticationCardLogo from '@/Jetstream/AuthenticationCardLogo.vue'
-
 defineProps<{ terms: string }>()
 </script>
 

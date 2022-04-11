@@ -1,10 +1,5 @@
 <script setup lang="ts">
-import JetActionSection from '@/Jetstream/ActionSection.vue'
-import JetDialogModal from '@/Jetstream/DialogModal.vue'
-import JetDangerButton from '@/Jetstream/DangerButton.vue'
-import JetInput from '@/Jetstream/Input.vue'
-import JetInputError from '@/Jetstream/InputError.vue'
-import JetSecondaryButton from '@/Jetstream/SecondaryButton.vue'
+import type JetInput from '@/Jetstream/Input.vue'
 
 let confirmingUserDeletion = $ref(false)
 const passwordInput = $ref<InstanceType<typeof JetInput> | null>(null)
