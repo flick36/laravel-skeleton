@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type JetInput from '@/Jetstream/Input.vue'
+import type JetInput from '@/components/Jetstream/Input.vue'
 
 const passwordInput = $ref<InstanceType<typeof JetInput> | null>(null)
 const currentPasswordInput = $ref<InstanceType<typeof JetInput> | null>(null)

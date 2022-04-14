@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type JetInput from '@/Jetstream/Input.vue'
+import type JetInput from '@/components/Jetstream/Input.vue'
 
 let recovery = $ref(false)
 const codeInput = $ref<InstanceType<typeof JetInput> | null>(null)
