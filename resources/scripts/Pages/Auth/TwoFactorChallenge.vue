@@ -10,7 +10,7 @@ const form = useForm({
   recovery_code: '',
 })
 
-const toggleRecovery = async() => {
+const toggleRecovery = async () => {
   recovery = !recovery
 
   await nextTick()
