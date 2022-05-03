@@ -1,7 +1,6 @@
 <script setup lang="ts">
-const hasActions = $computed(() => !!useSlots().actions)
-
 defineEmits<{ (e: 'submitted'): void }>()
+const hasActions = $computed(() => !!useSlots().actions)
 </script>
 
 <template>

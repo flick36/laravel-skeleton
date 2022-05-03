@@ -1,5 +1,5 @@
 <template>
-  <Link :href="'/'">
+  <Link href="/">
     <svg
       class="w-16 h-16"
       viewBox="0 0 48 48"

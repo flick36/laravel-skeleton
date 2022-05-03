@@ -88,7 +88,7 @@ const deletePhoto = () => {
         <div v-show="photoPreview" class="mt-2">
           <span
             class="block w-20 h-20 bg-center bg-no-repeat bg-cover rounded-full"
-            :style="'background-image: url(\'' + photoPreview + '\');'"
+            :style="`background-image: url('${photoPreview}');`"
           />
         </div>
         <JetSecondaryButton

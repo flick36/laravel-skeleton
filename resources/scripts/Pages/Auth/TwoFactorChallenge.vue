@@ -49,7 +49,7 @@ const submit = () => form.post('/two-factor-challenge')
     <JetValidationErrors class="mb-4" />
 
     <form @submit.prevent="submit">
-      <div v-if="! recovery">
+      <div v-if="!recovery">
         <JetLabel for="code" value="Code" />
         <JetInput
           id="code"

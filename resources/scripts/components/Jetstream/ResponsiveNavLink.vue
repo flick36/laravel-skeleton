@@ -20,7 +20,7 @@ const classes = $computed(() => {
 
 <template>
   <div>
-    <button v-if="as == 'button'" :class="classes" class="w-full text-left">
+    <button v-if="as === 'button'" :class="classes" class="w-full text-left">
       <slot />
     </button>
 

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 defineProps<{ policy: string }>()
 </script>
-~
+
 <template>
   <Head title="Privacy Policy" />
 

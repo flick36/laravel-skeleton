@@ -91,7 +91,7 @@ const logout = () => Inertia.post('/logout')
                             <JetDropdownLink as="button">
                               <div class="flex items-center">
                                 <svg
-                                  v-if="team.id == $page.props.user?.current_team_id"
+                                  v-if="team.id === $page.props.user?.current_team_id"
                                   class="w-5 h-5 mr-2 text-green-400"
                                   fill="none"
                                   stroke-linecap="round"
@@ -164,7 +164,7 @@ const logout = () => Inertia.post('/logout')
 
             <!-- Hamburger -->
             <div class="flex items-center -mr-2 sm:hidden">
-              <button class="inline-flex items-center justify-center p-2 text-gray-400 transition rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500" @click="showingNavigationDropdown = ! showingNavigationDropdown">
+              <button class="inline-flex items-center justify-center p-2 text-gray-400 transition rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500" @click="showingNavigationDropdown = !showingNavigationDropdown">
                 <svg
                   class="w-6 h-6"
                   stroke="currentColor"
@@ -172,14 +172,14 @@ const logout = () => Inertia.post('/logout')
                   viewBox="0 0 24 24"
                 >
                   <path
-                    :class="{'hidden': showingNavigationDropdown, 'inline-flex': ! showingNavigationDropdown }"
+                    :class="{ 'hidden': showingNavigationDropdown, 'inline-flex': !showingNavigationDropdown }"
                     stroke-linecap="round"
                     stroke-linejoin="round"
                     stroke-width="2"
                     d="M4 6h16M4 12h16M4 18h16"
                   />
                   <path
-                    :class="{'hidden': ! showingNavigationDropdown, 'inline-flex': showingNavigationDropdown }"
+                    :class="{ 'hidden': !showingNavigationDropdown, 'inline-flex': showingNavigationDropdown }"
                     stroke-linecap="round"
                     stroke-linejoin="round"
                     stroke-width="2"
@@ -192,7 +192,7 @@ const logout = () => Inertia.post('/logout')
         </div>
 
         <!-- Responsive Navigation Menu -->
-        <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
+        <div :class="{ block: showingNavigationDropdown, hidden: !showingNavigationDropdown }" class="sm:hidden">
           <div class="pt-2 pb-3 space-y-1">
             <JetResponsiveNavLink href="/dashboard" :active="$page.url === '/dashboard'">
               Dashboard
@@ -261,7 +261,7 @@ const logout = () => Inertia.post('/logout')
                     <JetResponsiveNavLink as="button">
                       <div class="flex items-center">
                         <svg
-                          v-if="team.id == $page.props.user?.current_team_id"
+                          v-if="team.id === $page.props.user?.current_team_id"
                           class="w-5 h-5 mr-2 text-green-400"
                           fill="none"
                           stroke-linecap="round"

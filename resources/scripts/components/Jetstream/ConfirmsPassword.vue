@@ -14,6 +14,8 @@ const {
   button = 'Confirm',
 } = defineProps<Props>()
 
+const emit = defineEmits<{ (e: 'confirmed'): void }>()
+
 let confirmingPassword = $ref(false)
 const passwordInput = $ref<InstanceType<typeof JetInput> | null>(null)
 const form = reactive({
@@ -21,8 +23,6 @@ const form = reactive({
   error: '',
   processing: false,
 })
-
-const emit = defineEmits<{ (e: 'confirmed'): void }>()
 
 const startConfirmingPassword = () => {
   axios.get('/user/confirmed-password-status').then((response) => {
