@@ -5,6 +5,7 @@ const { user } = defineProps<{ user: JetstreamUser }>()
 
 const photoInput = $ref<HTMLInputElement | null>(null)
 let photoPreview = $ref<string | ArrayBuffer | null>(null)
+let verificationLinkSent = $ref(false)
 
 const form = useForm<{
   _method: string
@@ -32,6 +33,10 @@ const updateProfileInformation = () => {
     preserveScroll: true,
     onSuccess: () => clearPhotoFileInput(),
   })
+}
+
+const sendEmailVerification = () => {
+  verificationLinkSent = true
 }
 
 const selectNewPhoto = () => photoInput?.click()
@@ -130,6 +135,24 @@ const deletePhoto = () => {
           class="block w-full mt-1"
         />
         <JetInputError :message="form.errors.email" class="mt-2" />
+
+        <div v-show="user.email_verified_at === null">
+          <p class="mt-2 text-sm">
+            Your email address is unverified.
+            <Link
+              href="/email/verification-notification"
+              method="post"
+              as="button"
+              class="text-gray-600 underline hover:text-gray-900"
+              @click.prevent="sendEmailVerification"
+            >
+              Click here to re-send the verification email.
+            </Link>
+          </p>
+          <div v-show="verificationLinkSent" class="mt-2 text-sm font-medium text-green-600">
+            A new verification link has been sent to your email address.
+          </div>
+        </div>
       </div>
     </template>
     <template #actions>
