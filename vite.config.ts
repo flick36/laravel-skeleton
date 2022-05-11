@@ -5,6 +5,7 @@ import Laravel from 'vite-plugin-laravel'
 import Vue from '@vitejs/plugin-vue'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
+import Inspector from 'vite-plugin-vue-inspector'
 
 export default defineConfig({
   plugins: [
@@ -57,6 +58,11 @@ export default defineConfig({
         },
       ],
       dts: 'resources/scripts/components.d.ts',
+    }),
+
+    // https://github.com/webfansplz/vite-plugin-vue-inspector
+    Inspector({
+      enabled: false,
     }),
   ],
 })

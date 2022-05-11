@@ -30,6 +30,7 @@
         "unplugin-vue-components": "^0.19.5",
         "vite": "^2.9.9",
         "vite-plugin-laravel": "^0.2.0-beta.11",
+        "vite-plugin-vue-inspector": "^0.5.7",
         "vue-tsc": "^0.34.12"
     }
 }
