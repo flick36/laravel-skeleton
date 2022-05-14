@@ -17,6 +17,7 @@ declare module '@inertiajs/inertia' {
       canManageTwoFactorAuthentication: boolean
       canUpdatePassword: boolean
       canUpdateProfileInformation: boolean
+      hasEmailVerification: boolean
       flash: Record<string, unknown>
       hasAccountDeletionFeatures: boolean
       hasApiFeatures: boolean

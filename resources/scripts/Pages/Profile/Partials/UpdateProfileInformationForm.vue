@@ -136,7 +136,7 @@ const deletePhoto = () => {
         />
         <JetInputError :message="form.errors.email" class="mt-2" />
 
-        <div v-show="user.email_verified_at === null">
+        <div v-show="$page.props.jetstream.hasEmailVerification && user.email_verified_at === null">
           <p class="mt-2 text-sm">
             Your email address is unverified.
             <Link
