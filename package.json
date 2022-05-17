@@ -14,7 +14,7 @@
         "vue": "^3.2.33"
     },
     "devDependencies": {
-        "@antfu/eslint-config": "^0.23.0",
+        "@antfu/eslint-config": "^0.23.1",
         "@tailwindcss/forms": "^0.5.1",
         "@tailwindcss/typography": "^0.5.2",
         "@types/tailwindcss": "^3.0.10",
@@ -30,6 +30,6 @@
         "unplugin-vue-components": "^0.19.5",
         "vite": "^2.9.9",
         "vite-plugin-laravel": "^0.2.0-beta.11",
-        "vue-tsc": "^0.34.12"
+        "vue-tsc": "^0.34.15"
     }
 }
