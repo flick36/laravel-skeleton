@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ApiToken, UserPermissions } from '@/types'
+import type { ApiToken, CRUDPermissions } from '@/types'
 
 const {
   tokens,
@@ -7,15 +7,15 @@ const {
   defaultPermissions,
 } = defineProps<{
   tokens: ApiToken[]
-  availablePermissions: UserPermissions
-  defaultPermissions: UserPermissions
+  availablePermissions: CRUDPermissions
+  defaultPermissions: CRUDPermissions
 }>()
 
 const createApiTokenForm = useForm({
   name: '',
   permissions: defaultPermissions,
 })
-const updateApiTokenForm = useForm<{ permissions: UserPermissions }>({ permissions: [] })
+const updateApiTokenForm = useForm<{ permissions: CRUDPermissions }>({ permissions: [] })
 const deleteApiTokenForm = useForm({})
 
 let displayingToken = $ref(false)
@@ -177,7 +177,7 @@ const deleteApiToken = () => {
     </JetDialogModal>
 
     <!-- API Token Permissions Modal -->
-    <JetDialogModal :show="Boolean(managingPermissionsFor)" @close="managingPermissionsFor = null">
+    <JetDialogModal :show="managingPermissionsFor != null" @close="managingPermissionsFor = null">
       <template #title>
         API Token Permissions
       </template>
@@ -210,7 +210,7 @@ const deleteApiToken = () => {
     </JetDialogModal>
 
     <!-- Delete Token Confirmation Modal -->
-    <JetConfirmationModal :show="Boolean(apiTokenBeingDeleted)" @close="apiTokenBeingDeleted = null">
+    <JetConfirmationModal :show="apiTokenBeingDeleted != null" @close="apiTokenBeingDeleted = null">
       <template #title>
         Delete API Token
       </template>
