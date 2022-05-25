@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import ApiTokenManager from '@/pages/API/Partials/ApiTokenManager.vue'
 import AppLayout from '@/layouts/AppLayout.vue'
-import type { ApiToken, UserPermissions } from '@/types'
+import type { ApiToken, CRUDPermissions } from '@/types'
 
 defineProps<{
   tokens: ApiToken[]
-  availablePermissions: UserPermissions
-  defaultPermissions: UserPermissions
+  availablePermissions: CRUDPermissions
+  defaultPermissions: CRUDPermissions
 }>()
 </script>
 

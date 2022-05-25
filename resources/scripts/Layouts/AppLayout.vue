@@ -71,7 +71,7 @@ const logout = () => Inertia.post('/logout')
                         </div>
 
                         <!-- Team Settings -->
-                        <JetDropdownLink href="`/teams/${$page.props.user?.current_team}`">
+                        <JetDropdownLink :href="`/teams/${$page.props.user?.current_team?.id}`">
                           Team Settings
                         </JetDropdownLink>
 

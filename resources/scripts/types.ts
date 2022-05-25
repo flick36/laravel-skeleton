@@ -15,6 +15,7 @@ export interface JetstreamUser extends User {
   current_team?: Team
   all_teams?: Team[] | null
   two_factor_enabled: boolean
+  membership?: TeamMember
 }
 
 export interface Team {
@@ -24,14 +25,48 @@ export interface Team {
   personal_team: boolean
   created_at: string | null
   updated_at: string | null
+  owner?: JetstreamUser
+  users?: JetstreamUser[]
+  team_invitations?: TeamInvitation[]
 }
 
-export type UserPermissions = Array<'create' | 'read' | 'update' | 'delete'>
+export interface TeamInvitation {
+  id: number
+  team_id: number
+  email: string
+  role: string
+  created_at: string | null
+  updated_at: string | null
+}
+
+export interface TeamMember {
+  team_id: number
+  user_id: number
+  role: string
+  created_at: string
+  updated_at: string
+}
+
+export interface JetstreamTeamPermissions {
+  canAddTeamMembers: boolean
+  canDeleteTeam: boolean
+  canRemoveTeamMembers: boolean
+  canUpdateTeam: boolean
+}
+
+export type CRUDPermissions = ('create' | 'read' | 'update' | 'delete')[]
+
+export interface Role {
+  description: string
+  key: string
+  name: string
+  permissions: CRUDPermissions[]
+}
 
 export interface ApiToken {
   id: number
   name: string
-  abilities: UserPermissions
+  abilities: CRUDPermissions
   last_used_ago: string | null
   last_used_at: string | null
   created_at: string | null
