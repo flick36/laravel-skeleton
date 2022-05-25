@@ -39,6 +39,7 @@ export default defineConfig({
         },
       ],
       dts: 'resources/scripts/auto-imports.d.ts',
+      vueTemplate: true,
     }),
 
     // https://github.com/antfu/unplugin-vue-components
