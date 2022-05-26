@@ -28,6 +28,8 @@ class AppServiceProvider extends ServiceProvider
     {
         Model::preventLazyLoading(! app()->isProduction());
 
-        Relation::requireMorphMap();
+        Relation::enforceMorphMap([
+            'user' => 'App\Models\User',
+        ]);
     }
 }
