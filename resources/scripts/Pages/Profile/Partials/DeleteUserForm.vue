@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type JetInput from '@/components/Jetstream/Input.vue'
+import JetInput from '@/components/Jetstream/Input.vue'
 
 let confirmingUserDeletion = $ref(false)
 const passwordInput = $ref<InstanceType<typeof JetInput> | null>(null)

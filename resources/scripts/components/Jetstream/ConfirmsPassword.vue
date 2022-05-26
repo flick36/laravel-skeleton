@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type JetInput from './Input.vue'
+import JetInput from './Input.vue'
 import axios from '@/modules/axios'
 
 interface Props {
