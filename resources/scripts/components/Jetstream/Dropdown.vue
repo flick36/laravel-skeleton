@@ -47,15 +47,15 @@ const alignmentClasses = $computed(() => {
 
     <transition
       enter-active-class="transition duration-200 ease-out"
-      enter-from-class="transform scale-95 opacity-0"
-      enter-to-class="transform scale-100 opacity-100"
+      enter-from-class="opacity-0 transform scale-95"
+      enter-to-class="opacity-100 transform scale-100"
       leave-active-class="transition duration-75 ease-in"
-      leave-from-class="transform scale-100 opacity-100"
-      leave-to-class="transform scale-95 opacity-0"
+      leave-from-class="opacity-100 transform scale-100"
+      leave-to-class="opacity-0 transform scale-95"
     >
       <div
         v-show="open"
-        class="absolute z-50 mt-2 rounded-md shadow-lg"
+        class="absolute z-50 mt-2 shadow-lg rounded-md"
         :class="[widthClass, alignmentClasses]"
         style="display: none;"
         @click="open = false"

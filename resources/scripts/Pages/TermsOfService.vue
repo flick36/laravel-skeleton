@@ -12,7 +12,7 @@ defineProps<{ terms: string }>()
           <JetAuthenticationCardLogo />
         </div>
 
-        <div class="w-full p-6 mt-6 overflow-hidden prose bg-white shadow-md sm:max-w-2xl sm:rounded-lg" v-html="terms" />
+        <div class="w-full p-6 mt-6 overflow-hidden bg-white shadow-md prose  sm:max-w-2xl sm:rounded-lg" v-html="terms" />
       </div>
     </div>
   </div>

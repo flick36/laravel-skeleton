@@ -85,7 +85,7 @@ const deleteApiToken = () => {
         <div v-if="availablePermissions.length > 0" class="col-span-6">
           <JetLabel for="permissions" value="Permissions" />
 
-          <div class="grid grid-cols-1 gap-4 mt-2 md:grid-cols-2">
+          <div class="mt-2 grid grid-cols-1 gap-4 md:grid-cols-2">
             <div v-for="permission in availablePermissions" :key="permission">
               <label class="flex items-center">
                 <JetCheckbox v-model:checked="createApiTokenForm.permissions" :value="permission" />

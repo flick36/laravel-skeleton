@@ -47,7 +47,7 @@ const logout = () => Inertia.post('/logout')
                 <JetDropdown v-if="$page.props.jetstream.hasTeamFeatures" align="right" width="60">
                   <template #trigger>
                     <span class="inline-flex rounded-md">
-                      <button type="button" class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition bg-white border border-transparent rounded-md hover:bg-gray-50 hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50">
+                      <button type="button" class="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-transparent leading-4 transition rounded-md hover:bg-gray-50 hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50">
                         {{ $page.props.user?.current_team?.name }}
 
                         <svg
@@ -115,12 +115,12 @@ const logout = () => Inertia.post('/logout')
               <div class="relative ml-3">
                 <JetDropdown align="right" width="48">
                   <template #trigger>
-                    <button v-if="$page.props.jetstream.managesProfilePhotos" class="flex text-sm transition border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300">
+                    <button v-if="$page.props.jetstream.managesProfilePhotos" class="flex text-sm border-2 border-transparent rounded-full transition focus:outline-none focus:border-gray-300">
                       <img class="object-cover w-8 h-8 rounded-full" :src="$page.props.user?.profile_photo_url" :alt="$page.props.user?.name">
                     </button>
 
                     <span v-else class="inline-flex rounded-md">
-                      <button type="button" class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition bg-white border border-transparent rounded-md hover:text-gray-700 focus:outline-none">
+                      <button type="button" class="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-transparent leading-4 transition rounded-md hover:text-gray-700 focus:outline-none">
                         {{ $page.props.user?.name }}
 
                         <svg
