@@ -13,6 +13,7 @@ specifiers:
   autoprefixer: ^10.4.7
   axios: ^0.27.2
   eslint: ^8.16.0
+  eslint-plugin-tailwindcss: 3.5.1-beta.0
   postcss: ^8.4.14
   tailwindcss: ^3.0.24
   typescript: ^4.7.2
@@ -39,6 +40,7 @@ devDependencies:
   autoprefixer: 10.4.7_postcss@8.4.14
   axios: 0.27.2
   eslint: 8.16.0
+  eslint-plugin-tailwindcss: 3.5.1-beta.0
   postcss: 8.4.14
   tailwindcss: 3.0.24
   typescript: 4.7.2
@@ -1494,6 +1496,17 @@ packages:
       resolve: 2.0.0-next.3
       semver: 6.3.0
       string.prototype.matchall: 4.0.7
+    dev: true
+
+  /eslint-plugin-tailwindcss/3.5.1-beta.0:
+    resolution: {integrity: sha512-8/fxfvmhfxJNTUXDIOJ8x+XRDJtLHXWN3M79pbob79LvHHwR9JsCqYy7fZvztCoZd6TlUYYUU12CM+GhmxuRLQ==}
+    engines: {node: '>=12.13.0'}
+    dependencies:
+      fast-glob: 3.2.11
+      postcss: 8.4.14
+      tailwindcss: 3.0.24
+    transitivePeerDependencies:
+      - ts-node
     dev: true
 
   /eslint-plugin-unicorn/42.0.0_eslint@8.16.0:

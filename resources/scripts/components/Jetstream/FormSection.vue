@@ -14,10 +14,10 @@ const hasActions = $computed(() => !!useSlots().actions)
       </template>
     </JetSectionTitle>
 
-    <div class="mt-5 md:mt-0 md:col-span-2">
+    <div class="mt-5 md:col-span-2 md:mt-0">
       <form @submit.prevent="$emit('submitted')">
         <div
-          class="px-4 py-5 bg-white shadow sm:p-6"
+          class="py-5 px-4 bg-white shadow sm:p-6"
           :class="hasActions ? 'sm:rounded-tl-md sm:rounded-tr-md' : 'sm:rounded-md'"
         >
           <div class="grid grid-cols-6 gap-6">
@@ -25,7 +25,7 @@ const hasActions = $computed(() => !!useSlots().actions)
           </div>
         </div>
 
-        <div v-if="hasActions" class="flex items-center justify-end px-4 py-3 text-right shadow bg-gray-50 sm:px-6 sm:rounded-bl-md sm:rounded-br-md">
+        <div v-if="hasActions" class="flex justify-end items-center py-3 px-4 text-right bg-gray-50 shadow sm:px-6 sm:rounded-b-md">
           <slot name="actions" />
         </div>
       </form>

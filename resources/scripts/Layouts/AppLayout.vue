@@ -27,14 +27,14 @@ const logout = () => Inertia.post('/logout')
           <div class="flex justify-between h-16">
             <div class="flex">
               <!-- Logo -->
-              <div class="flex items-center shrink-0">
+              <div class="flex shrink-0 items-center">
                 <Link href="/dashboard">
                   <JetApplicationMark class="block w-auto h-9" />
                 </Link>
               </div>
 
               <!-- Navigation Links -->
-              <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+              <div class="hidden space-x-8 sm:flex sm:-my-px sm:ml-10">
                 <JetNavLink href="/dashboard" :active="$page.url === '/dashboard'">
                   Dashboard
                 </JetNavLink>
@@ -47,11 +47,11 @@ const logout = () => Inertia.post('/logout')
                 <JetDropdown v-if="$page.props.jetstream.hasTeamFeatures" align="right" width="60">
                   <template #trigger>
                     <span class="inline-flex rounded-md">
-                      <button type="button" class="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-transparent leading-4 transition rounded-md hover:bg-gray-50 hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50">
+                      <button type="button" class="inline-flex items-center py-2 px-3 text-sm font-medium leading-4 text-gray-500 hover:text-gray-700 bg-white hover:bg-gray-50 focus:bg-gray-50 active:bg-gray-50 rounded-md border border-transparent focus:outline-none transition">
                         {{ $page.props.user?.current_team?.name }}
 
                         <svg
-                          class="ml-2 -mr-0.5 h-4 w-4"
+                          class="-mr-0.5 ml-2 w-4 h-4"
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 20 20"
                           fill="currentColor"
@@ -66,7 +66,7 @@ const logout = () => Inertia.post('/logout')
                     <div class="w-60">
                       <!-- Team Management -->
                       <template v-if="$page.props.jetstream.hasTeamFeatures">
-                        <div class="block px-4 py-2 text-xs text-gray-400">
+                        <div class="block py-2 px-4 text-xs text-gray-400">
                           Manage Team
                         </div>
 
@@ -82,7 +82,7 @@ const logout = () => Inertia.post('/logout')
                         <div class="border-t border-gray-100" />
 
                         <!-- Team Switcher -->
-                        <div class="block px-4 py-2 text-xs text-gray-400">
+                        <div class="block py-2 px-4 text-xs text-gray-400">
                           Switch Teams
                         </div>
 
@@ -92,7 +92,7 @@ const logout = () => Inertia.post('/logout')
                               <div class="flex items-center">
                                 <svg
                                   v-if="team.id === $page.props.user?.current_team_id"
-                                  class="w-5 h-5 mr-2 text-green-400"
+                                  class="mr-2 w-5 h-5 text-green-400"
                                   fill="none"
                                   stroke-linecap="round"
                                   stroke-linejoin="round"
@@ -115,16 +115,16 @@ const logout = () => Inertia.post('/logout')
               <div class="relative ml-3">
                 <JetDropdown align="right" width="48">
                   <template #trigger>
-                    <button v-if="$page.props.jetstream.managesProfilePhotos" class="flex text-sm border-2 border-transparent rounded-full transition focus:outline-none focus:border-gray-300">
+                    <button v-if="$page.props.jetstream.managesProfilePhotos" class="flex text-sm rounded-full border-2 border-transparent focus:border-gray-300 focus:outline-none transition">
                       <img class="object-cover w-8 h-8 rounded-full" :src="$page.props.user?.profile_photo_url" :alt="$page.props.user?.name">
                     </button>
 
                     <span v-else class="inline-flex rounded-md">
-                      <button type="button" class="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-transparent leading-4 transition rounded-md hover:text-gray-700 focus:outline-none">
+                      <button type="button" class="inline-flex items-center py-2 px-3 text-sm font-medium leading-4 text-gray-500 hover:text-gray-700 bg-white rounded-md border border-transparent focus:outline-none transition">
                         {{ $page.props.user?.name }}
 
                         <svg
-                          class="ml-2 -mr-0.5 h-4 w-4"
+                          class="-mr-0.5 ml-2 w-4 h-4"
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 20 20"
                           fill="currentColor"
@@ -137,7 +137,7 @@ const logout = () => Inertia.post('/logout')
 
                   <template #content>
                     <!-- Account Management -->
-                    <div class="block px-4 py-2 text-xs text-gray-400">
+                    <div class="block py-2 px-4 text-xs text-gray-400">
                       Manage Account
                     </div>
 
@@ -164,7 +164,7 @@ const logout = () => Inertia.post('/logout')
 
             <!-- Hamburger -->
             <div class="flex items-center -mr-2 sm:hidden">
-              <button class="inline-flex items-center justify-center p-2 text-gray-400 transition rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500" @click="showingNavigationDropdown = !showingNavigationDropdown">
+              <button class="inline-flex justify-center items-center p-2 text-gray-400 hover:text-gray-500 focus:text-gray-500 hover:bg-gray-100 focus:bg-gray-100 rounded-md focus:outline-none transition" @click="showingNavigationDropdown = !showingNavigationDropdown">
                 <svg
                   class="w-6 h-6"
                   stroke="currentColor"
@@ -202,7 +202,7 @@ const logout = () => Inertia.post('/logout')
           <!-- Responsive Settings Options -->
           <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="flex items-center px-4">
-              <div v-if="$page.props.jetstream.managesProfilePhotos" class="mr-3 shrink-0">
+              <div v-if="$page.props.jetstream.managesProfilePhotos" class="shrink-0 mr-3">
                 <img class="object-cover w-10 h-10 rounded-full" :src="$page.props.user?.profile_photo_url" :alt="$page.props.user?.name">
               </div>
 
@@ -236,7 +236,7 @@ const logout = () => Inertia.post('/logout')
               <template v-if="$page.props.jetstream.hasTeamFeatures">
                 <div class="border-t border-gray-200" />
 
-                <div class="block px-4 py-2 text-xs text-gray-400">
+                <div class="block py-2 px-4 text-xs text-gray-400">
                   Manage Team
                 </div>
 
@@ -252,7 +252,7 @@ const logout = () => Inertia.post('/logout')
                 <div class="border-t border-gray-200" />
 
                 <!-- Team Switcher -->
-                <div class="block px-4 py-2 text-xs text-gray-400">
+                <div class="block py-2 px-4 text-xs text-gray-400">
                   Switch Teams
                 </div>
 
@@ -262,7 +262,7 @@ const logout = () => Inertia.post('/logout')
                       <div class="flex items-center">
                         <svg
                           v-if="team.id === $page.props.user?.current_team_id"
-                          class="w-5 h-5 mr-2 text-green-400"
+                          class="mr-2 w-5 h-5 text-green-400"
                           fill="none"
                           stroke-linecap="round"
                           stroke-linejoin="round"
@@ -283,7 +283,7 @@ const logout = () => Inertia.post('/logout')
 
       <!-- Page Heading -->
       <header v-if="$slots.header" class="bg-white shadow">
-        <div class="px-4 py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div class="py-6 px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <slot name="header" />
         </div>
       </header>

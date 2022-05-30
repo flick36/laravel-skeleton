@@ -75,7 +75,7 @@ const deleteApiToken = () => {
             id="name"
             v-model="createApiTokenForm.name"
             type="text"
-            class="block w-full mt-1"
+            class="block mt-1 w-full"
             autofocus
           />
           <JetInputError :message="createApiTokenForm.errors.name" class="mt-2" />
@@ -85,7 +85,7 @@ const deleteApiToken = () => {
         <div v-if="availablePermissions.length > 0" class="col-span-6">
           <JetLabel for="permissions" value="Permissions" />
 
-          <div class="mt-2 grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div class="grid grid-cols-1 gap-4 mt-2 md:grid-cols-2">
             <div v-for="permission in availablePermissions" :key="permission">
               <label class="flex items-center">
                 <JetCheckbox v-model:checked="createApiTokenForm.permissions" :value="permission" />
@@ -124,7 +124,7 @@ const deleteApiToken = () => {
           <!-- API Token List -->
           <template #content>
             <div class="space-y-6">
-              <div v-for="token in tokens" :key="token.id" class="flex items-center justify-between">
+              <div v-for="token in tokens" :key="token.id" class="flex justify-between items-center">
                 <div>
                   {{ token.name }}
                 </div>
@@ -164,7 +164,7 @@ const deleteApiToken = () => {
           Please copy your new API token. For your security, it won't be shown again.
         </div>
 
-        <div v-if="$page.props.jetstream.flash.token" class="px-4 py-2 mt-4 font-mono text-sm text-gray-500 bg-gray-100 rounded">
+        <div v-if="$page.props.jetstream.flash.token" class="py-2 px-4 mt-4 font-mono text-sm text-gray-500 bg-gray-100 rounded">
           {{ $page.props.jetstream.flash.token }}
         </div>
       </template>

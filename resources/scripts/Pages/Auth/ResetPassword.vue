@@ -35,7 +35,7 @@ const submit = () => {
           id="email"
           v-model="form.email"
           type="email"
-          class="block w-full mt-1"
+          class="block mt-1 w-full"
           required
           autofocus
         />
@@ -47,7 +47,7 @@ const submit = () => {
           id="password"
           v-model="form.password"
           type="password"
-          class="block w-full mt-1"
+          class="block mt-1 w-full"
           required
           autocomplete="new-password"
         />
@@ -59,13 +59,13 @@ const submit = () => {
           id="password_confirmation"
           v-model="form.password_confirmation"
           type="password"
-          class="block w-full mt-1"
+          class="block mt-1 w-full"
           required
           autocomplete="new-password"
         />
       </div>
 
-      <div class="flex items-center justify-end mt-4">
+      <div class="flex justify-end items-center mt-4">
         <JetButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
           Reset Password
         </JetButton>

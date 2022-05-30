@@ -23,7 +23,7 @@ const close = () => emit('close')
     :closeable="closeable"
     @close="close"
   >
-    <div class="px-6 py-4">
+    <div class="py-4 px-6">
       <div class="text-lg">
         <slot name="title" />
       </div>
@@ -33,7 +33,7 @@ const close = () => emit('close')
       </div>
     </div>
 
-    <div class="flex flex-row justify-end px-6 py-4 text-right bg-gray-100">
+    <div class="flex flex-row justify-end py-4 px-6 text-right bg-gray-100">
       <slot name="footer" />
     </div>
   </JetModal>

@@ -9,7 +9,7 @@ const hasErrors = $computed(() => Object.keys(errors).length > 0)
       Whoops! Something went wrong.
     </div>
 
-    <ul class="mt-3 text-sm text-red-600 list-disc list-inside">
+    <ul class="mt-3 text-sm list-disc list-inside text-red-600">
       <li v-for="(error, key) in errors" :key="key">
         {{ error }}
       </li>

@@ -25,7 +25,7 @@ const close = () => emit('close')
   >
     <div class="px-4 pt-5 pb-4 bg-white sm:p-6 sm:pb-4">
       <div class="sm:flex sm:items-start">
-        <div class="flex items-center justify-center w-12 h-12 mx-auto bg-red-100 rounded-full shrink-0 sm:mx-0 sm:h-10 sm:w-10">
+        <div class="flex shrink-0 justify-center items-center mx-auto w-12 h-12 bg-red-100 rounded-full sm:mx-0 sm:w-10 sm:h-10">
           <svg
             class="w-6 h-6 text-red-600"
             stroke="currentColor"
@@ -53,7 +53,7 @@ const close = () => emit('close')
       </div>
     </div>
 
-    <div class="flex flex-row justify-end px-6 py-4 text-right bg-gray-100">
+    <div class="flex flex-row justify-end py-4 px-6 text-right bg-gray-100">
       <slot name="footer" />
     </div>
   </JetModal>

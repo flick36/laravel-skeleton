@@ -57,7 +57,7 @@ const submit = () => form.post('/two-factor-challenge')
           v-model="form.code"
           type="text"
           inputmode="numeric"
-          class="block w-full mt-1"
+          class="block mt-1 w-full"
           autofocus
           autocomplete="one-time-code"
         />
@@ -70,13 +70,13 @@ const submit = () => form.post('/two-factor-challenge')
           ref="recoveryCodeInput"
           v-model="form.recovery_code"
           type="text"
-          class="block w-full mt-1"
+          class="block mt-1 w-full"
           autocomplete="one-time-code"
         />
       </div>
 
-      <div class="flex items-center justify-end mt-4">
-        <button type="button" class="text-sm text-gray-600 underline cursor-pointer hover:text-gray-900" @click.prevent="toggleRecovery">
+      <div class="flex justify-end items-center mt-4">
+        <button type="button" class="text-sm text-gray-600 hover:text-gray-900 underline cursor-pointer" @click.prevent="toggleRecovery">
           <template v-if="!recovery">
             Use a recovery code
           </template>

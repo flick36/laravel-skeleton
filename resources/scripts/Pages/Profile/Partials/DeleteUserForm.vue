@@ -62,7 +62,7 @@ const deleteUser = () =>
               ref="passwordInput"
               v-model="form.password"
               type="password"
-              class="block w-3/4 mt-1"
+              class="block mt-1 w-3/4"
               placeholder="Password"
               @keyup.enter="deleteUser"
             />

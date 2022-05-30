@@ -43,7 +43,7 @@ const createTeam = () => {
           id="name"
           v-model="form.name"
           type="text"
-          class="block w-full mt-1"
+          class="block mt-1 w-full"
           autofocus
         />
         <JetInputError :message="form.errors.name" class="mt-2" />

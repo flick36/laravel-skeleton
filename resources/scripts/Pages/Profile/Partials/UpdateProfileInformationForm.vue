@@ -120,7 +120,7 @@ const deletePhoto = () => {
           id="name"
           v-model="form.name"
           type="text"
-          class="block w-full mt-1"
+          class="block mt-1 w-full"
           autocomplete="name"
         />
         <JetInputError :message="form.errors.name" class="mt-2" />
@@ -132,7 +132,7 @@ const deletePhoto = () => {
           id="email"
           v-model="form.email"
           type="email"
-          class="block w-full mt-1"
+          class="block mt-1 w-full"
         />
         <JetInputError :message="form.errors.email" class="mt-2" />
 
@@ -143,7 +143,7 @@ const deletePhoto = () => {
               href="/email/verification-notification"
               method="post"
               as="button"
-              class="text-gray-600 underline hover:text-gray-900"
+              class="text-gray-600 hover:text-gray-900 underline"
               @click.prevent="sendEmailVerification"
             >
               Click here to re-send the verification email.

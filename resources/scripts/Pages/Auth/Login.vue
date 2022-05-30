@@ -40,7 +40,7 @@ const submit = () =>
           id="email"
           v-model="form.email"
           type="email"
-          class="block w-full mt-1"
+          class="block mt-1 w-full"
           required
           autofocus
         />
@@ -52,7 +52,7 @@ const submit = () =>
           id="password"
           v-model="form.password"
           type="password"
-          class="block w-full mt-1"
+          class="block mt-1 w-full"
           required
           autocomplete="current-password"
         />
@@ -65,8 +65,8 @@ const submit = () =>
         </label>
       </div>
 
-      <div class="flex items-center justify-end mt-4">
-        <Link v-if="canResetPassword" href="/forgot-password" class="text-sm text-gray-600 underline hover:text-gray-900">
+      <div class="flex justify-end items-center mt-4">
+        <Link v-if="canResetPassword" href="/forgot-password" class="text-sm text-gray-600 hover:text-gray-900 underline">
           Forgot your password?
         </Link>
 

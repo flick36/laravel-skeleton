@@ -104,13 +104,13 @@ const disableTwoFactorAuthentication = () => {
         You have not enabled two factor authentication.
       </h3>
 
-      <div class="max-w-xl mt-3 text-sm text-gray-600">
+      <div class="mt-3 max-w-xl text-sm text-gray-600">
         <p>When two factor authentication is enabled, you will be prompted for a secure, random token during authentication. You may retrieve this token from your phone's Google Authenticator application.</p>
       </div>
 
       <div v-if="twoFactorEnabled">
         <div v-if="qrCode">
-          <div class="max-w-xl mt-4 text-sm text-gray-600">
+          <div class="mt-4 max-w-xl text-sm text-gray-600">
             <p
               v-if="confirming"
               class="font-semibold"
@@ -127,7 +127,7 @@ const disableTwoFactorAuthentication = () => {
 
           <div class="mt-4" v-html="qrCode" />
 
-          <div v-if="setupKey" class="max-w-xl mt-4 text-sm text-gray-600">
+          <div v-if="setupKey" class="mt-4 max-w-xl text-sm text-gray-600">
             <p class="font-semibold">
               Setup Key:
               <span v-html="setupKey" />
@@ -142,7 +142,7 @@ const disableTwoFactorAuthentication = () => {
               v-model="confirmationForm.code"
               type="text"
               name="code"
-              class="block w-1/2 mt-1"
+              class="block mt-1 w-1/2"
               inputmode="numeric"
               autofocus
               autocomplete="one-time-code"
@@ -154,7 +154,7 @@ const disableTwoFactorAuthentication = () => {
         </div>
 
         <div v-if="recoveryCodes.length > 0 && !confirming">
-          <div class="max-w-xl mt-4 text-sm text-gray-600">
+          <div class="mt-4 max-w-xl text-sm text-gray-600">
             <p
               class="font-semibold"
             >
@@ -162,7 +162,7 @@ const disableTwoFactorAuthentication = () => {
             </p>
           </div>
 
-          <div class="max-w-xl px-4 py-4 mt-4 font-mono text-sm bg-gray-100 rounded-lg grid gap-1">
+          <div class="grid gap-1 p-4 mt-4 max-w-xl font-mono text-sm bg-gray-100 rounded-lg">
             <div v-for="code in recoveryCodes" :key="code">
               {{ code }}
             </div>
