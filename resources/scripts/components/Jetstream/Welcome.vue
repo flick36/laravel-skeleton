@@ -17,7 +17,7 @@
       </div>
     </div>
 
-    <div class="grid grid-cols-1 bg-gray-200 md:grid-cols-2 bg-opacity/25">
+    <div class="grid grid-cols-1 bg-gray-200/25 md:grid-cols-2">
       <div class="p-6">
         <div class="flex items-center">
           <svg
