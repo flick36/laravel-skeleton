@@ -23,6 +23,8 @@ declare global {
   const getCurrentScope: typeof import('vue')['getCurrentScope']
   const h: typeof import('vue')['h']
   const inject: typeof import('vue')['inject']
+  const isProxy: typeof import('vue')['isProxy']
+  const isReactive: typeof import('vue')['isReactive']
   const isReadonly: typeof import('vue')['isReadonly']
   const isRef: typeof import('vue')['isRef']
   const markRaw: typeof import('vue')['markRaw']
@@ -63,6 +65,8 @@ declare global {
   const useSlots: typeof import('vue')['useSlots']
   const watch: typeof import('vue')['watch']
   const watchEffect: typeof import('vue')['watchEffect']
+  const watchPostEffect: typeof import('vue')['watchPostEffect']
+  const watchSyncEffect: typeof import('vue')['watchSyncEffect']
 }
 // for vue template auto import
 declare module 'vue' {
@@ -89,6 +93,8 @@ declare module 'vue' {
     getCurrentScope: typeof import('vue')['getCurrentScope']
     h: typeof import('vue')['h']
     inject: typeof import('vue')['inject']
+    isProxy: typeof import('vue')['isProxy']
+    isReactive: typeof import('vue')['isReactive']
     isReadonly: typeof import('vue')['isReadonly']
     isRef: typeof import('vue')['isRef']
     markRaw: typeof import('vue')['markRaw']
@@ -129,5 +135,7 @@ declare module 'vue' {
     useSlots: typeof import('vue')['useSlots']
     watch: typeof import('vue')['watch']
     watchEffect: typeof import('vue')['watchEffect']
+    watchPostEffect: typeof import('vue')['watchPostEffect']
+    watchSyncEffect: typeof import('vue')['watchSyncEffect']
   }
 }
