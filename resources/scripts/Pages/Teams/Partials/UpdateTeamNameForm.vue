@@ -1,17 +1,19 @@
 <script setup lang="ts">
 import type { JetstreamTeamPermissions, Team } from '@/types'
 
-const props = defineProps<{
+interface Props {
   team: Team
   permissions: JetstreamTeamPermissions
-}>()
+}
+
+const { team, permissions } = defineProps<Props>()
 
 const form = useForm({
-  name: props.team.name,
+  name: team.name,
 })
 
 const updateTeamName = () => {
-  form.put(`teams/${props.team.id}`, {
+  form.put(`teams/${team.id}`, {
     errorBag: 'updateTeamName',
     preserveScroll: true,
   })
@@ -34,12 +36,12 @@ const updateTeamName = () => {
         <JetLabel value="Team Owner" />
 
         <div class="flex items-center mt-2">
-          <img class="object-cover w-12 h-12 rounded-full" :src="team.owner.profile_photo_url" :alt="team.owner.name">
+          <img class="object-cover w-12 h-12 rounded-full" :src="team.owner?.profile_photo_url" :alt="team.owner?.name">
 
           <div class="ml-4 leading-tight">
-            <div>{{ team.owner.name }}</div>
+            <div>{{ team.owner?.name }}</div>
             <div class="text-sm text-gray-700">
-              {{ team.owner.email }}
+              {{ team.owner?.email }}
             </div>
           </div>
         </div>

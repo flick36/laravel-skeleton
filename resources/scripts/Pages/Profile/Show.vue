@@ -7,10 +7,15 @@ import UpdatePasswordForm from '@/pages/profile/partials/UpdatePasswordForm.vue'
 import UpdateProfileInformationForm from '@/pages/profile/partials/UpdateProfileInformationForm.vue'
 import type { UserSession } from '@/types'
 
-defineProps<{
-  confirmsTwoFactorAuthentication: boolean
+interface Props {
   sessions: UserSession[]
-}>()
+  confirmsTwoFactorAuthentication: boolean
+}
+
+const {
+  sessions,
+  confirmsTwoFactorAuthentication,
+} = defineProps<Props>()
 </script>
 
 <template>

@@ -4,7 +4,10 @@ interface Props {
   value?: string
 }
 
-const { checked = false, value = '' } = defineProps<Props>()
+const {
+  checked = false,
+  value = '',
+} = defineProps<Props>()
 
 const emit = defineEmits<{ (e: 'update:checked', checked: unknown[] | boolean): void }>()
 

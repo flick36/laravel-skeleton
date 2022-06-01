@@ -1,8 +1,10 @@
 <script setup lang="ts">
-const { href, active } = defineProps<{
+interface Props {
   href: string
   active: boolean
-}>()
+}
+
+const { href, active } = defineProps<Props>()
 
 const classes = $computed(() =>
   active

@@ -1,5 +1,7 @@
 <script setup lang="ts">
-const { type = 'button' } = defineProps<{ type?: 'button' | 'submit' | 'reset' }>()
+interface Props { type?: 'button' | 'submit' | 'reset'}
+
+const { type = 'button' } = defineProps<Props>()
 </script>
 
 <template>

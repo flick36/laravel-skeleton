@@ -1,10 +1,17 @@
 <script setup lang="ts">
-defineProps<{
+interface Props {
   canLogin: boolean
   canRegister: boolean
   laravelVersion: string
   phpVersion: string
-}>()
+}
+
+const {
+  canLogin,
+  canRegister,
+  laravelVersion,
+  phpVersion,
+} = defineProps<Props>()
 </script>
 
 <template>

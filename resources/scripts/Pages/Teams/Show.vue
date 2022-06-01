@@ -5,11 +5,17 @@ import TeamMemberManager from '@/pages/teams/partials/TeamMemberManager.vue'
 import UpdateTeamNameForm from '@/pages/teams/partials/UpdateTeamNameForm.vue'
 import type { JetstreamTeamPermissions, Role, Team } from '@/types'
 
-defineProps<{
+interface Props {
   team: Team
   availableRoles: Role[]
   permissions: JetstreamTeamPermissions
-}>()
+}
+
+const {
+  team,
+  availableRoles,
+  permissions,
+} = defineProps<Props>()
 </script>
 
 <template>

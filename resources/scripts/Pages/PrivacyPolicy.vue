@@ -1,5 +1,5 @@
 <script setup lang="ts">
-defineProps<{ policy: string }>()
+const { policy } = defineProps<{ policy: string }>()
 </script>
 
 <template>

@@ -1,8 +1,10 @@
 <script setup lang="ts">
-const { email, token } = defineProps<{
+interface Props {
   email: string
   token: string
-}>()
+}
+
+const { email, token } = defineProps<Props>()
 
 const form = useForm({
   token,

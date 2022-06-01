@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import type { Team } from '@/types'
 
-const props = defineProps<{
-  team: Team
-}>()
+const { team } = defineProps<{ team: Team }>()
 
 let confirmingTeamDeletion = $ref(false)
 const form = useForm({})
@@ -13,7 +11,7 @@ const confirmTeamDeletion = () => {
 }
 
 const deleteTeam = () => {
-  form.delete(`/teams/${props.team.id}`, {
+  form.delete(`/teams/${team.id}`, {
     errorBag: 'deleteTeam',
   })
 }

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Team } from '@/types'
 
-defineProps<{ title: string }>()
+const { title } = defineProps<{ title: string }>()
 
 const showingNavigationDropdown = $ref(false)
 

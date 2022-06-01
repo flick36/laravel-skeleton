@@ -1,5 +1,5 @@
 <script setup lang="ts">
-defineProps<{ status?: string }>()
+const { status } = defineProps<{ status?: string }>()
 
 const form = useForm({ email: '' })
 

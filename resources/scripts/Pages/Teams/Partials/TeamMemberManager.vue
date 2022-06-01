@@ -1,11 +1,17 @@
 <script setup lang="ts">
 import type { JetstreamTeamPermissions, JetstreamUser, Role, Team, TeamInvitation } from '@/types'
 
-const props = defineProps<{
+interface Props {
   team: Team
   availableRoles: Role[]
   userPermissions: JetstreamTeamPermissions
-}>()
+}
+
+const {
+  team,
+  availableRoles,
+  userPermissions,
+} = defineProps<Props>()
 
 const addTeamMemberForm = useForm({
   email: '',
@@ -25,7 +31,7 @@ let confirmingLeavingTeam = $ref(false)
 let teamMemberBeingRemoved = $ref<JetstreamUser | null>(null)
 
 const addTeamMember = () => {
-  addTeamMemberForm.post(`/teams/${props.team.id}/members`, {
+  addTeamMemberForm.post(`/teams/${team.id}/members`, {
     errorBag: 'addTeamMember',
     preserveScroll: true,
     onSuccess: () => addTeamMemberForm.reset(),
@@ -48,7 +54,7 @@ const manageRole = (teamMember: JetstreamUser) => {
 
 const updateRole = () => {
   if (managingRoleFor) {
-    updateRoleForm.put(`/teams/${props.team.id}/members/${managingRoleFor.id}`, {
+    updateRoleForm.put(`/teams/${team.id}/members/${managingRoleFor.id}`, {
       preserveScroll: true,
       onSuccess: () => currentlyManagingRole = false,
     })
@@ -60,7 +66,7 @@ const confirmLeavingTeam = () => {
 }
 
 const leaveTeam = () => {
-  leaveTeamForm.delete(`/teams/${props.team.id}/members/${usePage().props.value.user?.id}`)
+  leaveTeamForm.delete(`/teams/${team.id}/members/${usePage().props.value.user?.id}`)
 }
 
 const confirmTeamMemberRemoval = (teamMember: JetstreamUser) => {
@@ -69,7 +75,7 @@ const confirmTeamMemberRemoval = (teamMember: JetstreamUser) => {
 
 const removeTeamMember = () => {
   if (teamMemberBeingRemoved) {
-    removeTeamMemberForm.delete(`/teams/${props.team.id}/members/${teamMemberBeingRemoved.id}`, {
+    removeTeamMemberForm.delete(`/teams/${team.id}/members/${teamMemberBeingRemoved.id}`, {
       errorBag: 'removeTeamMember',
       preserveScroll: true,
       preserveState: true,
@@ -79,7 +85,7 @@ const removeTeamMember = () => {
 }
 
 const displayableRole = (role = '') => {
-  return props.availableRoles.find(r => r.key === role)?.name
+  return availableRoles.find(r => r.key === role)?.name
 }
 </script>
 

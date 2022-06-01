@@ -3,11 +3,17 @@ import ApiTokenManager from '@/pages/API/Partials/ApiTokenManager.vue'
 import AppLayout from '@/layouts/AppLayout.vue'
 import type { ApiToken, CRUDPermissions } from '@/types'
 
-defineProps<{
+interface Props {
   tokens: ApiToken[]
   availablePermissions: CRUDPermissions
   defaultPermissions: CRUDPermissions
-}>()
+}
+
+const {
+  tokens,
+  availablePermissions,
+  defaultPermissions,
+} = defineProps<Props>()
 </script>
 
 <template>

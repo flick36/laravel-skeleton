@@ -1,8 +1,10 @@
 <script setup lang="ts">
-defineProps<{
+interface Props {
   canResetPassword: boolean
   status?: string
-}>()
+}
+
+const { canResetPassword, status } = defineProps<Props>()
 
 const form = useForm({
   email: '',

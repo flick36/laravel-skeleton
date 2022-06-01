@@ -2,7 +2,7 @@
 import JetInput from '@/components/Jetstream/Input.vue'
 import type { UserSession } from '@/types'
 
-defineProps<{ sessions: UserSession[] }>()
+const { sessions } = defineProps<{ sessions: UserSession[] }>()
 
 let confirmingLogout = $ref(false)
 const passwordInput = $ref<InstanceType<typeof JetInput> | null>(null)

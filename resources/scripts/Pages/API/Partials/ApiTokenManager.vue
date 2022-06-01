@@ -1,15 +1,17 @@
 <script setup lang="ts">
 import type { ApiToken, CRUDPermissions } from '@/types'
 
+interface Props {
+  tokens: ApiToken[]
+  availablePermissions: CRUDPermissions
+  defaultPermissions: CRUDPermissions
+}
+
 const {
   tokens,
   availablePermissions,
   defaultPermissions,
-} = defineProps<{
-  tokens: ApiToken[]
-  availablePermissions: CRUDPermissions
-  defaultPermissions: CRUDPermissions
-}>()
+} = defineProps<Props>()
 
 const createApiTokenForm = useForm({
   name: '',

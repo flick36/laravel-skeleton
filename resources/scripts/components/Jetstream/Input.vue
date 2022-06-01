@@ -1,5 +1,5 @@
 <script setup lang="ts">
-defineProps<{ modelValue: string }>()
+const { modelValue } = defineProps<{ modelValue: string }>()
 
 defineEmits<{ (e: 'update:modelValue', value: string): void }>()
 
