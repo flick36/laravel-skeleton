@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ApiTokenManager from '@/pages/API/Partials/ApiTokenManager.vue'
+import ApiTokenManager from '@/Pages/API/Partials/ApiTokenManager.vue'
 import AppLayout from '@/layouts/AppLayout.vue'
 import type { ApiToken, CRUDPermissions } from '@/types'
 

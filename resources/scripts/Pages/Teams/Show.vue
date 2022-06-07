@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import AppLayout from '@/layouts/AppLayout.vue'
-import DeleteTeamForm from '@/pages/teams/partials/DeleteTeamForm.vue'
-import TeamMemberManager from '@/pages/teams/partials/TeamMemberManager.vue'
-import UpdateTeamNameForm from '@/pages/teams/partials/UpdateTeamNameForm.vue'
+import DeleteTeamForm from '@/Pages/Teams/Partials/DeleteTeamForm.vue'
+import TeamMemberManager from '@/Pages/Teams/Partials/TeamMemberManager.vue'
+import UpdateTeamNameForm from '@/Pages/Teams/Partials/UpdateTeamNameForm.vue'
 import type { JetstreamTeamPermissions, Role, Team } from '@/types'
 
 interface Props {

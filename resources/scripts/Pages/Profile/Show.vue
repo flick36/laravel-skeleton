@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import AppLayout from '@/layouts/AppLayout.vue'
-import DeleteUserForm from '@/pages/profile/partials/DeleteUserForm.vue'
-import LogoutOtherBrowserSessionsForm from '@/pages/profile/partials/LogoutOtherBrowserSessionsForm.vue'
-import TwoFactorAuthenticationForm from '@/pages/profile/partials/TwoFactorAuthenticationForm.vue'
-import UpdatePasswordForm from '@/pages/profile/partials/UpdatePasswordForm.vue'
-import UpdateProfileInformationForm from '@/pages/profile/partials/UpdateProfileInformationForm.vue'
+import DeleteUserForm from '@/Pages/Profile/Partials/DeleteUserForm.vue'
+import LogoutOtherBrowserSessionsForm from '@/Pages/Profile/Partials/LogoutOtherBrowserSessionsForm.vue'
+import TwoFactorAuthenticationForm from '@/Pages/Profile/Partials/TwoFactorAuthenticationForm.vue'
+import UpdatePasswordForm from '@/Pages/Profile/Partials/UpdatePasswordForm.vue'
+import UpdateProfileInformationForm from '@/Pages/Profile/Partials/UpdateProfileInformationForm.vue'
 import type { UserSession } from '@/types'
 
 interface Props {
