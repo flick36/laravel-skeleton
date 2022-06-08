@@ -1,6 +1,4 @@
 import { defineConfig } from 'vite'
-import tailwindcss from 'tailwindcss'
-import autoprefixer from 'autoprefixer'
 import Laravel from 'vite-plugin-laravel'
 import Vue from '@vitejs/plugin-vue'
 import Components from 'unplugin-vue-components/vite'
@@ -12,12 +10,7 @@ export default defineConfig({
       reactivityTransform: true,
     }),
 
-    Laravel({
-      postcss: [
-        tailwindcss(),
-        autoprefixer(),
-      ],
-    }),
+    Laravel(),
 
     // https://github.com/antfu/unplugin-auto-import
     AutoImport({

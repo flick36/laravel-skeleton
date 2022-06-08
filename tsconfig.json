@@ -1,25 +1,25 @@
 {
-    "compilerOptions": {
-        "baseUrl": ".",
-        "module": "esnext",
-        "target": "esnext",
-        "lib": ["dom", "esnext"],
-        "strict": true,
-        "esModuleInterop": true,
-        "jsx": "preserve",
-        "skipLibCheck": true,
-        "moduleResolution": "node",
-        "resolveJsonModule": true,
-        "noUnusedLocals": true,
-        "strictNullChecks": true,
-        "forceConsistentCasingInFileNames": true,
-        "types": [
-            "vite/client",
-            "vue/ref-macros"
-        ],
-        "paths": {
-            "@/*": ["resources/scripts/*"]
-        }
-    },
-    "exclude": ["dist", "node_modules", "vendor", "cypress"]
+  "compilerOptions": {
+    "baseUrl": ".",
+    "module": "ESNext",
+    "target": "ESNext",
+    "lib": ["DOM", "ESNext"],
+    "strict": true,
+    "esModuleInterop": true,
+    "jsx": "preserve",
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "noUnusedLocals": true,
+    "strictNullChecks": true,
+    "forceConsistentCasingInFileNames": true,
+    "types": [
+      "vite/client",
+      "vue/ref-macros"
+    ],
+    "paths": {
+      "@/*": ["resources/scripts/*"]
+    }
+  },
+  "exclude": ["dist", "node_modules", "vendor", "cypress"]
 }
