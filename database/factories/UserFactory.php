@@ -28,8 +28,8 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name(),
-            'email' => $this->faker->unique()->safeEmail(),
+            'name' => fake()->name(),
+            'email' => fake()->safeEmail(),
             'email_verified_at' => now(),
             'password' => '$argon2id$v=19$m=1024,t=2,p=2$ekxkYk1wNmxSellHRDZ2Qw$1F2Z8YhD3QrbSCGls15fQw', // password
             'remember_token' => Str::random(10),
