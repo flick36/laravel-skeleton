@@ -1,16 +1,30 @@
 import { defineConfig } from 'vite'
-import Laravel from 'vite-plugin-laravel'
+import Laravel from 'laravel-vite-plugin'
 import Vue from '@vitejs/plugin-vue'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 
 export default defineConfig({
+  resolve: {
+    alias: {
+      '@': '/resources/scripts',
+    },
+  },
+
   plugins: [
-    Vue({
-      reactivityTransform: true,
+    Laravel({
+      input: 'resources/scripts/main.ts',
     }),
 
-    Laravel(),
+    Vue({
+      reactivityTransform: true,
+      template: {
+        transformAssetUrls: {
+          base: null,
+          includeAbsolute: false,
+        },
+      },
+    }),
 
     // https://github.com/antfu/unplugin-auto-import
     AutoImport({

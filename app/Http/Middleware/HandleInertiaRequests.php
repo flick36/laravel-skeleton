@@ -24,7 +24,7 @@ class HandleInertiaRequests extends Middleware
      */
     public function version(Request $request): ?string
     {
-        return vite()->getHash();
+        return parent::version($request);
     }
 
     /**
