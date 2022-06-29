@@ -86,13 +86,13 @@ const deletePhoto = () => {
           <img
             :src="user.profile_photo_url"
             :alt="user.name"
-            class="object-cover w-20 h-20 rounded-full"
+            class="h-20 w-20 rounded-full object-cover"
           >
         </div>
         <!-- New Profile Photo Preview -->
         <div v-show="photoPreview" class="mt-2">
           <span
-            class="block w-20 h-20 bg-center bg-no-repeat bg-cover rounded-full"
+            class="block h-20 w-20 rounded-full bg-cover bg-center bg-no-repeat"
             :style="`background-image: url('${photoPreview}');`"
           />
         </div>
@@ -120,7 +120,7 @@ const deletePhoto = () => {
           id="name"
           v-model="form.name"
           type="text"
-          class="block mt-1 w-full"
+          class="mt-1 block w-full"
           autocomplete="name"
         />
         <JetInputError :message="form.errors.name" class="mt-2" />
@@ -132,7 +132,7 @@ const deletePhoto = () => {
           id="email"
           v-model="form.email"
           type="email"
-          class="block mt-1 w-full"
+          class="mt-1 block w-full"
         />
         <JetInputError :message="form.errors.email" class="mt-2" />
 
@@ -143,7 +143,7 @@ const deletePhoto = () => {
               href="/email/verification-notification"
               method="post"
               as="button"
-              class="text-gray-600 hover:text-gray-900 underline"
+              class="text-gray-600 underline hover:text-gray-900"
               @click.prevent="sendEmailVerification"
             >
               Click here to re-send the verification email.

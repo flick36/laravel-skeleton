@@ -25,7 +25,7 @@ const verificationLinkSent = $computed(() => status === 'verification-link-sent'
     </div>
 
     <form @submit.prevent="submit">
-      <div class="flex justify-between items-center mt-4">
+      <div class="mt-4 flex items-center justify-between">
         <JetButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
           Resend Verification Email
         </JetButton>
@@ -33,7 +33,7 @@ const verificationLinkSent = $computed(() => status === 'verification-link-sent'
         <div>
           <Link
             href="/user/profile"
-            class="text-sm text-gray-600 hover:text-gray-900 underline"
+            class="text-sm text-gray-600 underline hover:text-gray-900"
           >
             Edit Profile
           </Link>
@@ -42,7 +42,7 @@ const verificationLinkSent = $computed(() => status === 'verification-link-sent'
             href="/logout"
             method="post"
             as="button"
-            class="text-sm text-gray-600 hover:text-gray-900 underline"
+            class="text-sm text-gray-600 underline hover:text-gray-900"
           >
             Log Out
           </Link>

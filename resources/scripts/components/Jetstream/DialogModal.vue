@@ -33,7 +33,7 @@ const close = () => emit('close')
       </div>
     </div>
 
-    <div class="flex flex-row justify-end py-4 px-6 text-right bg-gray-100">
+    <div class="flex flex-row justify-end bg-gray-100 py-4 px-6 text-right">
       <slot name="footer" />
     </div>
   </JetModal>

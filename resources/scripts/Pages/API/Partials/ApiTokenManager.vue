@@ -77,7 +77,7 @@ const deleteApiToken = () => {
             id="name"
             v-model="createApiTokenForm.name"
             type="text"
-            class="block mt-1 w-full"
+            class="mt-1 block w-full"
             autofocus
           />
           <JetInputError :message="createApiTokenForm.errors.name" class="mt-2" />
@@ -87,7 +87,7 @@ const deleteApiToken = () => {
         <div v-if="availablePermissions.length > 0" class="col-span-6">
           <JetLabel for="permissions" value="Permissions" />
 
-          <div class="grid grid-cols-1 gap-4 mt-2 md:grid-cols-2">
+          <div class="mt-2 grid grid-cols-1 gap-4 md:grid-cols-2">
             <div v-for="permission in availablePermissions" :key="permission">
               <label class="flex items-center">
                 <JetCheckbox v-model:checked="createApiTokenForm.permissions" :value="permission" />
@@ -126,7 +126,7 @@ const deleteApiToken = () => {
           <!-- API Token List -->
           <template #content>
             <div class="space-y-6">
-              <div v-for="token in tokens" :key="token.id" class="flex justify-between items-center">
+              <div v-for="token in tokens" :key="token.id" class="flex items-center justify-between">
                 <div>
                   {{ token.name }}
                 </div>
@@ -138,13 +138,13 @@ const deleteApiToken = () => {
 
                   <button
                     v-if="availablePermissions.length > 0"
-                    class="ml-6 text-sm text-gray-400 underline cursor-pointer"
+                    class="ml-6 cursor-pointer text-sm text-gray-400 underline"
                     @click="manageApiTokenPermissions(token)"
                   >
                     Permissions
                   </button>
 
-                  <button class="ml-6 text-sm text-red-500 cursor-pointer" @click="confirmApiTokenDeletion(token)">
+                  <button class="ml-6 cursor-pointer text-sm text-red-500" @click="confirmApiTokenDeletion(token)">
                     Delete
                   </button>
                 </div>
@@ -166,7 +166,7 @@ const deleteApiToken = () => {
           Please copy your new API token. For your security, it won't be shown again.
         </div>
 
-        <div v-if="$page.props.jetstream.flash.token" class="py-2 px-4 mt-4 font-mono text-sm text-gray-500 bg-gray-100 rounded">
+        <div v-if="$page.props.jetstream.flash.token" class="mt-4 rounded bg-gray-100 py-2 px-4 font-mono text-sm text-gray-500">
           {{ $page.props.jetstream.flash.token }}
         </div>
       </template>

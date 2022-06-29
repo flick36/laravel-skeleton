@@ -58,7 +58,7 @@ const logoutOtherBrowserSessions = () => {
               stroke-width="2"
               viewBox="0 0 24 24"
               stroke="currentColor"
-              class="w-8 h-8 text-gray-500"
+              class="h-8 w-8 text-gray-500"
             >
               <path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
@@ -72,7 +72,7 @@ const logoutOtherBrowserSessions = () => {
               fill="none"
               stroke-linecap="round"
               stroke-linejoin="round"
-              class="w-8 h-8 text-gray-500"
+              class="h-8 w-8 text-gray-500"
             >
               <path d="M0 0h24v24H0z" stroke="none" /><rect
                 x="7"
@@ -101,7 +101,7 @@ const logoutOtherBrowserSessions = () => {
         </div>
       </div>
 
-      <div class="flex items-center mt-5">
+      <div class="mt-5 flex items-center">
         <JetButton @click="confirmLogout">
           Log Out Other Browser Sessions
         </JetButton>
@@ -125,7 +125,7 @@ const logoutOtherBrowserSessions = () => {
               ref="passwordInput"
               v-model="form.password"
               type="password"
-              class="block mt-1 w-3/4"
+              class="mt-1 block w-3/4"
               placeholder="Password"
               @keyup.enter="logoutOtherBrowserSessions"
             />

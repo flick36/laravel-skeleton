@@ -118,7 +118,7 @@ const displayableRole = (role = '') => {
               id="email"
               v-model="addTeamMemberForm.email"
               type="email"
-              class="block mt-1 w-full"
+              class="mt-1 block w-full"
             />
             <JetInputError :message="addTeamMemberForm.errors.email" class="mt-2" />
           </div>
@@ -128,12 +128,12 @@ const displayableRole = (role = '') => {
             <JetLabel for="roles" value="Role" />
             <JetInputError :message="addTeamMemberForm.errors.role" class="mt-2" />
 
-            <div class="relative z-0 mt-1 rounded-lg border border-gray-200 cursor-pointer">
+            <div class="relative z-0 mt-1 cursor-pointer rounded-lg border border-gray-200">
               <button
                 v-for="(role, i) in availableRoles"
                 :key="role.key"
                 type="button"
-                class="inline-flex relative focus:z-10 py-3 px-4 w-full rounded-lg focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-200"
+                class="relative inline-flex w-full rounded-lg py-3 px-4 focus:z-10 focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-200"
                 :class="{ 'border-t border-gray-200 rounded-t-none': i > 0, 'rounded-b-none': i !== Object.keys(availableRoles).length - 1 }"
                 @click="addTeamMemberForm.role = role.key"
               >
@@ -146,7 +146,7 @@ const displayableRole = (role = '') => {
 
                     <svg
                       v-if="addTeamMemberForm.role === role.key"
-                      class="ml-2 w-5 h-5 text-green-400"
+                      class="ml-2 h-5 w-5 text-green-400"
                       fill="none"
                       stroke-linecap="round"
                       stroke-linejoin="round"
@@ -157,7 +157,7 @@ const displayableRole = (role = '') => {
                   </div>
 
                   <!-- Role Description -->
-                  <div class="mt-2 text-xs text-left text-gray-600">
+                  <div class="mt-2 text-left text-xs text-gray-600">
                     {{ role.description }}
                   </div>
                 </div>
@@ -194,7 +194,7 @@ const displayableRole = (role = '') => {
         <!-- Pending Team Member Invitation List -->
         <template #content>
           <div class="space-y-6">
-            <div v-for="invitation in team.team_invitations" :key="invitation.id" class="flex justify-between items-center">
+            <div v-for="invitation in team.team_invitations" :key="invitation.id" class="flex items-center justify-between">
               <div class="text-gray-600">
                 {{ invitation.email }}
               </div>
@@ -203,7 +203,7 @@ const displayableRole = (role = '') => {
                 <!-- Cancel Team Invitation -->
                 <button
                   v-if="userPermissions.canRemoveTeamMembers"
-                  class="ml-6 text-sm text-red-500 focus:outline-none cursor-pointer"
+                  class="ml-6 cursor-pointer text-sm text-red-500 focus:outline-none"
                   @click="cancelTeamInvitation(invitation)"
                 >
                   Cancel
@@ -231,9 +231,9 @@ const displayableRole = (role = '') => {
         <!-- Team Member List -->
         <template #content>
           <div class="space-y-6">
-            <div v-for="user in team.users" :key="user.id" class="flex justify-between items-center">
+            <div v-for="user in team.users" :key="user.id" class="flex items-center justify-between">
               <div class="flex items-center">
-                <img class="w-8 h-8 rounded-full" :src="user.profile_photo_url" :alt="user.name">
+                <img class="h-8 w-8 rounded-full" :src="user.profile_photo_url" :alt="user.name">
                 <div class="ml-4">
                   {{ user.name }}
                 </div>
@@ -256,7 +256,7 @@ const displayableRole = (role = '') => {
                 <!-- Leave Team -->
                 <button
                   v-if="$page.props.user?.id === user.id"
-                  class="ml-6 text-sm text-red-500 cursor-pointer"
+                  class="ml-6 cursor-pointer text-sm text-red-500"
                   @click="confirmLeavingTeam"
                 >
                   Leave
@@ -265,7 +265,7 @@ const displayableRole = (role = '') => {
                 <!-- Remove Team Member -->
                 <button
                   v-if="userPermissions.canRemoveTeamMembers"
-                  class="ml-6 text-sm text-red-500 cursor-pointer"
+                  class="ml-6 cursor-pointer text-sm text-red-500"
                   @click="confirmTeamMemberRemoval(user)"
                 >
                   Remove
@@ -285,12 +285,12 @@ const displayableRole = (role = '') => {
 
       <template #content>
         <div v-if="managingRoleFor">
-          <div class="relative z-0 mt-1 rounded-lg border border-gray-200 cursor-pointer">
+          <div class="relative z-0 mt-1 cursor-pointer rounded-lg border border-gray-200">
             <button
               v-for="(role, i) in availableRoles"
               :key="role.key"
               type="button"
-              class="inline-flex relative focus:z-10 py-3 px-4 w-full rounded-lg focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-200"
+              class="relative inline-flex w-full rounded-lg py-3 px-4 focus:z-10 focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-200"
               :class="{ 'border-t border-gray-200 rounded-t-none': i > 0, 'rounded-b-none': i !== Object.keys(availableRoles).length - 1 }"
               @click="updateRoleForm.role = role.key"
             >
@@ -303,7 +303,7 @@ const displayableRole = (role = '') => {
 
                   <svg
                     v-if="updateRoleForm.role === role.key"
-                    class="ml-2 w-5 h-5 text-green-400"
+                    class="ml-2 h-5 w-5 text-green-400"
                     fill="none"
                     stroke-linecap="round"
                     stroke-linejoin="round"

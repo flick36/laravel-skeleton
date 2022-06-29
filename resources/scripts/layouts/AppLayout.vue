@@ -21,37 +21,37 @@ const logout = () => Inertia.post('/logout')
     <JetBanner />
 
     <div class="min-h-screen bg-gray-100">
-      <nav class="bg-white border-b border-gray-100">
+      <nav class="border-b border-gray-100 bg-white">
         <!-- Primary Navigation Menu -->
-        <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-          <div class="flex justify-between h-16">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="flex h-16 justify-between">
             <div class="flex">
               <!-- Logo -->
               <div class="flex shrink-0 items-center">
                 <Link href="/dashboard">
-                  <JetApplicationMark class="block w-auto h-9" />
+                  <JetApplicationMark class="block h-9 w-auto" />
                 </Link>
               </div>
 
               <!-- Navigation Links -->
-              <div class="hidden space-x-8 sm:flex sm:-my-px sm:ml-10">
+              <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                 <JetNavLink href="/dashboard" :active="$page.url === '/dashboard'">
                   Dashboard
                 </JetNavLink>
               </div>
             </div>
 
-            <div class="hidden sm:flex sm:items-center sm:ml-6">
+            <div class="hidden sm:ml-6 sm:flex sm:items-center">
               <div class="relative ml-3">
                 <!-- Teams Dropdown -->
                 <JetDropdown v-if="$page.props.jetstream.hasTeamFeatures" align="right" width="60">
                   <template #trigger>
                     <span class="inline-flex rounded-md">
-                      <button type="button" class="inline-flex items-center py-2 px-3 text-sm font-medium leading-4 text-gray-500 hover:text-gray-700 bg-white hover:bg-gray-50 focus:bg-gray-50 active:bg-gray-50 rounded-md border border-transparent focus:outline-none transition">
+                      <button type="button" class="inline-flex items-center rounded-md border border-transparent bg-white py-2 px-3 text-sm font-medium leading-4 text-gray-500 transition hover:bg-gray-50 hover:text-gray-700 focus:bg-gray-50 focus:outline-none active:bg-gray-50">
                         {{ $page.props.user?.current_team?.name }}
 
                         <svg
-                          class="-mr-0.5 ml-2 w-4 h-4"
+                          class="-mr-0.5 ml-2 h-4 w-4"
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 20 20"
                           fill="currentColor"
@@ -92,7 +92,7 @@ const logout = () => Inertia.post('/logout')
                               <div class="flex items-center">
                                 <svg
                                   v-if="team.id === $page.props.user?.current_team_id"
-                                  class="mr-2 w-5 h-5 text-green-400"
+                                  class="mr-2 h-5 w-5 text-green-400"
                                   fill="none"
                                   stroke-linecap="round"
                                   stroke-linejoin="round"
@@ -115,16 +115,16 @@ const logout = () => Inertia.post('/logout')
               <div class="relative ml-3">
                 <JetDropdown align="right" width="48">
                   <template #trigger>
-                    <button v-if="$page.props.jetstream.managesProfilePhotos" class="flex text-sm rounded-full border-2 border-transparent focus:border-gray-300 focus:outline-none transition">
-                      <img class="object-cover w-8 h-8 rounded-full" :src="$page.props.user?.profile_photo_url" :alt="$page.props.user?.name">
+                    <button v-if="$page.props.jetstream.managesProfilePhotos" class="flex rounded-full border-2 border-transparent text-sm transition focus:border-gray-300 focus:outline-none">
+                      <img class="h-8 w-8 rounded-full object-cover" :src="$page.props.user?.profile_photo_url" :alt="$page.props.user?.name">
                     </button>
 
                     <span v-else class="inline-flex rounded-md">
-                      <button type="button" class="inline-flex items-center py-2 px-3 text-sm font-medium leading-4 text-gray-500 hover:text-gray-700 bg-white rounded-md border border-transparent focus:outline-none transition">
+                      <button type="button" class="inline-flex items-center rounded-md border border-transparent bg-white py-2 px-3 text-sm font-medium leading-4 text-gray-500 transition hover:text-gray-700 focus:outline-none">
                         {{ $page.props.user?.name }}
 
                         <svg
-                          class="-mr-0.5 ml-2 w-4 h-4"
+                          class="-mr-0.5 ml-2 h-4 w-4"
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 20 20"
                           fill="currentColor"
@@ -163,10 +163,10 @@ const logout = () => Inertia.post('/logout')
             </div>
 
             <!-- Hamburger -->
-            <div class="flex items-center -mr-2 sm:hidden">
-              <button class="inline-flex justify-center items-center p-2 text-gray-400 hover:text-gray-500 focus:text-gray-500 hover:bg-gray-100 focus:bg-gray-100 rounded-md focus:outline-none transition" @click="showingNavigationDropdown = !showingNavigationDropdown">
+            <div class="-mr-2 flex items-center sm:hidden">
+              <button class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 transition hover:bg-gray-100 hover:text-gray-500 focus:bg-gray-100 focus:text-gray-500 focus:outline-none" @click="showingNavigationDropdown = !showingNavigationDropdown">
                 <svg
-                  class="w-6 h-6"
+                  class="h-6 w-6"
                   stroke="currentColor"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -193,17 +193,17 @@ const logout = () => Inertia.post('/logout')
 
         <!-- Responsive Navigation Menu -->
         <div :class="{ block: showingNavigationDropdown, hidden: !showingNavigationDropdown }" class="sm:hidden">
-          <div class="pt-2 pb-3 space-y-1">
+          <div class="space-y-1 pt-2 pb-3">
             <JetResponsiveNavLink href="/dashboard" :active="$page.url === '/dashboard'">
               Dashboard
             </JetResponsiveNavLink>
           </div>
 
           <!-- Responsive Settings Options -->
-          <div class="pt-4 pb-1 border-t border-gray-200">
+          <div class="border-t border-gray-200 pt-4 pb-1">
             <div class="flex items-center px-4">
-              <div v-if="$page.props.jetstream.managesProfilePhotos" class="shrink-0 mr-3">
-                <img class="object-cover w-10 h-10 rounded-full" :src="$page.props.user?.profile_photo_url" :alt="$page.props.user?.name">
+              <div v-if="$page.props.jetstream.managesProfilePhotos" class="mr-3 shrink-0">
+                <img class="h-10 w-10 rounded-full object-cover" :src="$page.props.user?.profile_photo_url" :alt="$page.props.user?.name">
               </div>
 
               <div>
@@ -262,7 +262,7 @@ const logout = () => Inertia.post('/logout')
                       <div class="flex items-center">
                         <svg
                           v-if="team.id === $page.props.user?.current_team_id"
-                          class="mr-2 w-5 h-5 text-green-400"
+                          class="mr-2 h-5 w-5 text-green-400"
                           fill="none"
                           stroke-linecap="round"
                           stroke-linejoin="round"
@@ -283,7 +283,7 @@ const logout = () => Inertia.post('/logout')
 
       <!-- Page Heading -->
       <header v-if="$slots.header" class="bg-white shadow">
-        <div class="py-6 px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-7xl py-6 px-4 sm:px-6 lg:px-8">
           <slot name="header" />
         </div>
       </header>

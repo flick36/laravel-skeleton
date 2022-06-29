@@ -35,8 +35,8 @@ const updateTeamName = () => {
       <div class="col-span-6">
         <JetLabel value="Team Owner" />
 
-        <div class="flex items-center mt-2">
-          <img class="object-cover w-12 h-12 rounded-full" :src="team.owner?.profile_photo_url" :alt="team.owner?.name">
+        <div class="mt-2 flex items-center">
+          <img class="h-12 w-12 rounded-full object-cover" :src="team.owner?.profile_photo_url" :alt="team.owner?.name">
 
           <div class="ml-4 leading-tight">
             <div>{{ team.owner?.name }}</div>
@@ -55,7 +55,7 @@ const updateTeamName = () => {
           id="name"
           v-model="form.name"
           type="text"
-          class="block mt-1 w-full"
+          class="mt-1 block w-full"
           :disabled="!permissions.canUpdateTeam"
         />
 

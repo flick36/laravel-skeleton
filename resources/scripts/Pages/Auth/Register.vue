@@ -31,7 +31,7 @@ const submit = () => {
           id="name"
           v-model="form.name"
           type="text"
-          class="block mt-1 w-full"
+          class="mt-1 block w-full"
           required
           autofocus
           autocomplete="name"
@@ -44,7 +44,7 @@ const submit = () => {
           id="email"
           v-model="form.email"
           type="email"
-          class="block mt-1 w-full"
+          class="mt-1 block w-full"
           required
         />
       </div>
@@ -55,7 +55,7 @@ const submit = () => {
           id="password"
           v-model="form.password"
           type="password"
-          class="block mt-1 w-full"
+          class="mt-1 block w-full"
           required
           autocomplete="new-password"
         />
@@ -67,7 +67,7 @@ const submit = () => {
           id="password_confirmation"
           v-model="form.password_confirmation"
           type="password"
-          class="block mt-1 w-full"
+          class="mt-1 block w-full"
           required
           autocomplete="new-password"
         />
@@ -79,14 +79,14 @@ const submit = () => {
             <JetCheckbox id="terms" v-model:checked="form.terms" name="terms" />
 
             <div class="ml-2">
-              I agree to the <a target="_blank" href="/terms-of-service" class="text-sm text-gray-600 hover:text-gray-900 underline">Terms of Service</a> and <a target="_blank" href="/privacy-policy" class="text-sm text-gray-600 hover:text-gray-900 underline">Privacy Policy</a>
+              I agree to the <a target="_blank" href="/terms-of-service" class="text-sm text-gray-600 underline hover:text-gray-900">Terms of Service</a> and <a target="_blank" href="/privacy-policy" class="text-sm text-gray-600 underline hover:text-gray-900">Privacy Policy</a>
             </div>
           </div>
         </JetLabel>
       </div>
 
-      <div class="flex justify-end items-center mt-4">
-        <Link href="/login" class="text-sm text-gray-600 hover:text-gray-900 underline">
+      <div class="mt-4 flex items-center justify-end">
+        <Link href="/login" class="text-sm text-gray-600 underline hover:text-gray-900">
           Already registered?
         </Link>
 
