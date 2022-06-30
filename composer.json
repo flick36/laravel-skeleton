@@ -21,8 +21,8 @@
         "barryvdh/laravel-ide-helper": "^2.11",
         "brianium/paratest": "^6.4",
         "fakerphp/faker": "^1.9.1",
-        "friendsofphp/php-cs-fixer": "^3.4",
         "itsgoingd/clockwork": "^5.1",
+        "laravel/pint": "^0.2.1",
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^6.1",
@@ -59,12 +59,6 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
-        ],
-        "fix-cs-dry": [
-            "vendor/bin/php-cs-fixer fix -vvv --dry-run --show-progress=dots"
-        ],
-        "fix-cs": [
-            "vendor/bin/php-cs-fixer fix -vvv --show-progress=dots"
         ]
     },
     "extra": {
