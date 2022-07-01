@@ -12,7 +12,7 @@ const { terms } = defineProps<{ terms: string }>()
           <JetAuthenticationCardLogo />
         </div>
 
-        <div class="prose mt-6 w-full overflow-hidden bg-white p-6 shadow-md  sm:max-w-2xl sm:rounded-lg" v-html="terms" />
+        <div class="prose mt-6 w-full overflow-hidden bg-white p-6 shadow-md sm:max-w-2xl sm:rounded-lg" v-html="terms" />
       </div>
     </div>
   </div>

@@ -68,11 +68,11 @@ const maxWidthClass = $computed(() => {
 
         <transition
           enter-active-class="duration-300 ease-out"
-          enter-from-class="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-          enter-to-class="opacity-100 translate-y-0 sm:scale-100"
+          enter-from-class="translate-y-4 opacity-0 sm:translate-y-0 sm:scale-95"
+          enter-to-class="translate-y-0 opacity-100 sm:scale-100"
           leave-active-class="duration-200 ease-in"
-          leave-from-class="opacity-100 translate-y-0 sm:scale-100"
-          leave-to-class="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+          leave-from-class="translate-y-0 opacity-100 sm:scale-100"
+          leave-to-class="translate-y-4 opacity-0 sm:translate-y-0 sm:scale-95"
         >
           <div v-show="show" class="relative mb-6 overflow-hidden rounded-lg bg-white shadow-xl transition-all sm:mx-auto sm:w-full" :class="maxWidthClass">
             <slot v-if="show" />

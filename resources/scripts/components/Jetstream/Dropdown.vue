@@ -47,11 +47,11 @@ const alignmentClasses = $computed(() => {
 
     <transition
       enter-active-class="transition duration-200 ease-out"
-      enter-from-class="opacity-0 transform scale-95"
-      enter-to-class="opacity-100 transform scale-100"
+      enter-from-class="scale-95 transform opacity-0"
+      enter-to-class="scale-100 transform opacity-100"
       leave-active-class="transition duration-75 ease-in"
-      leave-from-class="opacity-100 transform scale-100"
-      leave-to-class="opacity-0 transform scale-95"
+      leave-from-class="scale-100 transform opacity-100"
+      leave-to-class="scale-95 transform opacity-0"
     >
       <div
         v-show="open"
