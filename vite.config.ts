@@ -13,7 +13,8 @@ export default defineConfig({
 
   plugins: [
     Laravel({
-      input: 'resources/scripts/main.ts',
+      input: ['resources/scripts/main.ts'],
+      refresh: true,
     }),
 
     Vue({
