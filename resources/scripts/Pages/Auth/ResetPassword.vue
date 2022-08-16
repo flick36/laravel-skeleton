@@ -28,8 +28,6 @@ const submit = () => {
       <JetAuthenticationCardLogo />
     </template>
 
-    <JetValidationErrors class="mb-4" />
-
     <form @submit.prevent="submit">
       <div>
         <JetLabel for="email" value="Email" />
@@ -41,6 +39,7 @@ const submit = () => {
           required
           autofocus
         />
+        <JetInputError class="mt-2" :message="form.errors.email" />
       </div>
 
       <div class="mt-4">
@@ -53,6 +52,7 @@ const submit = () => {
           required
           autocomplete="new-password"
         />
+        <JetInputError class="mt-2" :message="form.errors.password" />
       </div>
 
       <div class="mt-4">
@@ -65,6 +65,7 @@ const submit = () => {
           required
           autocomplete="new-password"
         />
+        <JetInputError class="mt-2" :message="form.errors.password_confirmation" />
       </div>
 
       <div class="mt-4 flex items-center justify-end">

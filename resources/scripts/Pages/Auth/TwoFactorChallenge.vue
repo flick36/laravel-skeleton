@@ -46,8 +46,6 @@ const submit = () => form.post('/two-factor-challenge')
       </template>
     </div>
 
-    <JetValidationErrors class="mb-4" />
-
     <form @submit.prevent="submit">
       <div v-if="!recovery">
         <JetLabel for="code" value="Code" />
@@ -61,6 +59,7 @@ const submit = () => form.post('/two-factor-challenge')
           autofocus
           autocomplete="one-time-code"
         />
+        <JetInputError class="mt-2" :message="form.errors.code" />
       </div>
 
       <div v-else>
@@ -73,6 +72,7 @@ const submit = () => form.post('/two-factor-challenge')
           class="mt-1 block w-full"
           autocomplete="one-time-code"
         />
+        <JetInputError class="mt-2" :message="form.errors.recovery_code" />
       </div>
 
       <div class="mt-4 flex items-center justify-end">

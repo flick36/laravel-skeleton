@@ -22,8 +22,6 @@ const submit = () => {
       <JetAuthenticationCardLogo />
     </template>
 
-    <JetValidationErrors class="mb-4" />
-
     <form @submit.prevent="submit">
       <div>
         <JetLabel for="name" value="Name" />
@@ -36,6 +34,7 @@ const submit = () => {
           autofocus
           autocomplete="name"
         />
+        <JetInputError class="mt-2" :message="form.errors.name" />
       </div>
 
       <div class="mt-4">
@@ -47,6 +46,7 @@ const submit = () => {
           class="mt-1 block w-full"
           required
         />
+        <JetInputError class="mt-2" :message="form.errors.email" />
       </div>
 
       <div class="mt-4">
@@ -59,6 +59,7 @@ const submit = () => {
           required
           autocomplete="new-password"
         />
+        <JetInputError class="mt-2" :message="form.errors.password" />
       </div>
 
       <div class="mt-4">
@@ -71,6 +72,7 @@ const submit = () => {
           required
           autocomplete="new-password"
         />
+        <JetInputError class="mt-2" :message="form.errors.password_confirmation" />
       </div>
 
       <div v-if="$page.props.jetstream.hasTermsAndPrivacyPolicyFeature" class="mt-4">

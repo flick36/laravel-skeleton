@@ -29,8 +29,6 @@ const submit = () =>
       <JetAuthenticationCardLogo />
     </template>
 
-    <JetValidationErrors class="mb-4" />
-
     <div v-if="status" class="mb-4 text-sm font-medium text-green-600">
       {{ status }}
     </div>
@@ -46,6 +44,7 @@ const submit = () =>
           required
           autofocus
         />
+        <JetInputError class="mt-2" :message="form.errors.email" />
       </div>
 
       <div class="mt-4">
@@ -58,6 +57,7 @@ const submit = () =>
           required
           autocomplete="current-password"
         />
+        <JetInputError class="mt-2" :message="form.errors.password" />
       </div>
 
       <div class="mt-4 block">

@@ -27,8 +27,6 @@ const submit = () =>
       This is a secure area of the application. Please confirm your password before continuing.
     </div>
 
-    <JetValidationErrors class="mb-4" />
-
     <form @submit.prevent="submit">
       <div>
         <JetLabel for="password" value="Password" />
@@ -42,6 +40,7 @@ const submit = () =>
           autocomplete="current-password"
           autofocus
         />
+        <JetInputError class="mt-2" :message="form.errors.password" />
       </div>
 
       <div class="mt-4 flex justify-end">

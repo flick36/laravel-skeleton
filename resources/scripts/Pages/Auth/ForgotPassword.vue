@@ -22,8 +22,6 @@ const submit = () => form.post('/forgot-password')
       {{ status }}
     </div>
 
-    <JetValidationErrors class="mb-4" />
-
     <form @submit.prevent="submit">
       <div>
         <JetLabel for="email" value="Email" />
@@ -35,6 +33,7 @@ const submit = () => form.post('/forgot-password')
           required
           autofocus
         />
+        <JetInputError class="mt-2" :message="form.errors.email" />
       </div>
 
       <div class="mt-4 flex items-center justify-end">
