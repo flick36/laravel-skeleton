@@ -21,7 +21,7 @@ const updateTeamName = () => {
 </script>
 
 <template>
-  <JetFormSection @submitted="updateTeamName">
+  <FormSection @submitted="updateTeamName">
     <template #title>
       Team Name
     </template>
@@ -33,7 +33,7 @@ const updateTeamName = () => {
     <template #form>
       <!-- Team Owner Information -->
       <div class="col-span-6">
-        <JetLabel value="Team Owner" />
+        <InputLabel value="Team Owner" />
 
         <div class="mt-2 flex items-center">
           <img class="h-12 w-12 rounded-full object-cover" :src="team.owner?.profile_photo_url" :alt="team.owner?.name">
@@ -49,9 +49,9 @@ const updateTeamName = () => {
 
       <!-- Team Name -->
       <div class="col-span-6 sm:col-span-4">
-        <JetLabel for="name" value="Team Name" />
+        <InputLabel for="name" value="Team Name" />
 
-        <JetInput
+        <TextInput
           id="name"
           v-model="form.name"
           type="text"
@@ -59,18 +59,18 @@ const updateTeamName = () => {
           :disabled="!permissions.canUpdateTeam"
         />
 
-        <JetInputError :message="form.errors.name" class="mt-2" />
+        <InputError :message="form.errors.name" class="mt-2" />
       </div>
     </template>
 
     <template v-if="permissions.canUpdateTeam" #actions>
-      <JetActionMessage :on="form.recentlySuccessful" class="mr-3">
+      <ActionMessage :on="form.recentlySuccessful" class="mr-3">
         Saved.
-      </JetActionMessage>
+      </ActionMessage>
 
-      <JetButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+      <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
         Save
-      </JetButton>
+      </PrimaryButton>
     </template>
-  </JetFormSection>
+  </FormSection>
 </template>

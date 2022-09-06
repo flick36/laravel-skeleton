@@ -52,17 +52,13 @@ export default defineConfig({
 
     // https://github.com/antfu/unplugin-vue-components
     Components({
-      // importing from 'resources/scripts/components/**' excluding the Jetstream Folder
-      globs: ['resources/scripts/components/!(Jetstream)/**'],
+      // relative paths to the directory to search for components.
+      dirs: ['resources/scripts/components'],
       resolvers: [
         (componentName) => {
           // importing Head and Link from Inertia
           if (['Head', 'Link'].includes(componentName))
             return { name: componentName, from: '@inertiajs/inertia-vue3' }
-
-          // importing laravel/jetstream components
-          if (componentName.startsWith('Jet'))
-            return `/resources/scripts/components/Jetstream/${componentName.slice(3)}.vue`
         },
       ],
       dts: 'resources/scripts/components.d.ts',

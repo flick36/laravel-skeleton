@@ -2,7 +2,7 @@
   <div>
     <div class="border-b border-gray-200 bg-white p-6 sm:px-20">
       <div>
-        <JetApplicationLogo class="block h-12 w-auto" />
+        <ApplicationLogo class="block h-12 w-auto" />
       </div>
 
       <div class="mt-8 text-2xl">

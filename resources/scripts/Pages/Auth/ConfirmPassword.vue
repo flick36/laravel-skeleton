@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import JetInput from '@/components/Jetstream/Input.vue'
+import TextInput from '@/components/TextInput.vue'
 
 const form = useForm({ password: '' })
 
-const passwordInput = $ref<InstanceType<typeof JetInput> | null>(null)
+const passwordInput = $ref<InstanceType<typeof TextInput> | null>(null)
 
 const submit = () =>
   form.post('/user/confirm-password', {
@@ -18,9 +18,9 @@ const submit = () =>
 <template>
   <Head title="Secure Area" />
 
-  <JetAuthenticationCard>
+  <AuthenticationCard>
     <template #logo>
-      <JetAuthenticationCardLogo />
+      <AuthenticationCardLogo />
     </template>
 
     <div class="mb-4 text-sm text-gray-600">
@@ -29,8 +29,8 @@ const submit = () =>
 
     <form @submit.prevent="submit">
       <div>
-        <JetLabel for="password" value="Password" />
-        <JetInput
+        <InputLabel for="password" value="Password" />
+        <TextInput
           id="password"
           ref="passwordInput"
           v-model="form.password"
@@ -40,14 +40,14 @@ const submit = () =>
           autocomplete="current-password"
           autofocus
         />
-        <JetInputError class="mt-2" :message="form.errors.password" />
+        <InputError class="mt-2" :message="form.errors.password" />
       </div>
 
       <div class="mt-4 flex justify-end">
-        <JetButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+        <PrimaryButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
           Confirm
-        </JetButton>
+        </PrimaryButton>
       </div>
     </form>
-  </JetAuthenticationCard>
+  </AuthenticationCard>
 </template>

@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import JetInput from '@/components/Jetstream/Input.vue'
+import TextInput from '@/components/TextInput.vue'
 import type { UserSession } from '@/types'
 
 const { sessions } = defineProps<{ sessions: UserSession[] }>()
 
 let confirmingLogout = $ref(false)
-const passwordInput = $ref<InstanceType<typeof JetInput> | null>(null)
+const passwordInput = $ref<InstanceType<typeof TextInput> | null>(null)
 
 const form = useForm({ password: '' })
 
@@ -32,7 +32,7 @@ const logoutOtherBrowserSessions = () => {
 </script>
 
 <template>
-  <JetActionSection>
+  <ActionSection>
     <template #title>
       Browser Sessions
     </template>
@@ -102,17 +102,17 @@ const logoutOtherBrowserSessions = () => {
       </div>
 
       <div class="mt-5 flex items-center">
-        <JetButton @click="confirmLogout">
+        <PrimaryButton @click="confirmLogout">
           Log Out Other Browser Sessions
-        </JetButton>
+        </PrimaryButton>
 
-        <JetActionMessage :on="form.recentlySuccessful" class="ml-3">
+        <ActionMessage :on="form.recentlySuccessful" class="ml-3">
           Done.
-        </JetActionMessage>
+        </ActionMessage>
       </div>
 
       <!-- Log Out Other Devices Confirmation Modal -->
-      <JetDialogModal :show="confirmingLogout" @close="closeModal">
+      <DialogModal :show="confirmingLogout" @close="closeModal">
         <template #title>
           Log Out Other Browser Sessions
         </template>
@@ -121,7 +121,7 @@ const logoutOtherBrowserSessions = () => {
           Please enter your password to confirm you would like to log out of your other browser sessions across all of your devices.
 
           <div class="mt-4">
-            <JetInput
+            <TextInput
               ref="passwordInput"
               v-model="form.password"
               type="password"
@@ -130,25 +130,25 @@ const logoutOtherBrowserSessions = () => {
               @keyup.enter="logoutOtherBrowserSessions"
             />
 
-            <JetInputError :message="form.errors.password" class="mt-2" />
+            <InputError :message="form.errors.password" class="mt-2" />
           </div>
         </template>
 
         <template #footer>
-          <JetSecondaryButton @click="closeModal">
+          <SecondaryButton @click="closeModal">
             Cancel
-          </JetSecondaryButton>
+          </SecondaryButton>
 
-          <JetButton
+          <PrimaryButton
             class="ml-3"
             :class="{ 'opacity-25': form.processing }"
             :disabled="form.processing"
             @click="logoutOtherBrowserSessions"
           >
             Log Out Other Browser Sessions
-          </JetButton>
+          </PrimaryButton>
         </template>
-      </JetDialogModal>
+      </DialogModal>
     </template>
-  </JetActionSection>
+  </ActionSection>
 </template>

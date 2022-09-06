@@ -65,7 +65,7 @@ const deletePhoto = () => {
 </script>
 
 <template>
-  <JetFormSection @submitted="updateProfileInformation">
+  <FormSection @submitted="updateProfileInformation">
     <template #title>
       Profile Information
     </template>
@@ -80,7 +80,7 @@ const deletePhoto = () => {
       >
         <!-- Profile Photo File Input -->
         <input ref="photoInput" type="file" class="hidden" @change="updatePhotoPreview">
-        <JetLabel for="photo" value="Photo" />
+        <InputLabel for="photo" value="Photo" />
         <!-- Current Profile Photo -->
         <div v-show="!photoPreview" class="mt-2">
           <img
@@ -96,45 +96,45 @@ const deletePhoto = () => {
             :style="`background-image: url('${photoPreview}');`"
           />
         </div>
-        <JetSecondaryButton
+        <SecondaryButton
           class="mt-2 mr-2"
           type="button"
           @click.prevent="selectNewPhoto"
         >
           Select A New Photo
-        </JetSecondaryButton>
-        <JetSecondaryButton
+        </SecondaryButton>
+        <SecondaryButton
           v-if="user.profile_photo_path"
           type="button"
           class="mt-2"
           @click.prevent="deletePhoto"
         >
           Remove Photo
-        </JetSecondaryButton>
-        <JetInputError :message="form.errors.photo" class="mt-2" />
+        </SecondaryButton>
+        <InputError :message="form.errors.photo" class="mt-2" />
       </div>
       <!-- Name -->
       <div class="col-span-6 sm:col-span-4">
-        <JetLabel for="name" value="Name" />
-        <JetInput
+        <InputLabel for="name" value="Name" />
+        <TextInput
           id="name"
           v-model="form.name"
           type="text"
           class="mt-1 block w-full"
           autocomplete="name"
         />
-        <JetInputError :message="form.errors.name" class="mt-2" />
+        <InputError :message="form.errors.name" class="mt-2" />
       </div>
       <!-- Email -->
       <div class="col-span-6 sm:col-span-4">
-        <JetLabel for="email" value="Email" />
-        <JetInput
+        <InputLabel for="email" value="Email" />
+        <TextInput
           id="email"
           v-model="form.email"
           type="email"
           class="mt-1 block w-full"
         />
-        <JetInputError :message="form.errors.email" class="mt-2" />
+        <InputError :message="form.errors.email" class="mt-2" />
 
         <div v-show="$page.props.jetstream.hasEmailVerification && user.email_verified_at === null">
           <p class="mt-2 text-sm">
@@ -156,12 +156,12 @@ const deletePhoto = () => {
       </div>
     </template>
     <template #actions>
-      <JetActionMessage :on="form.recentlySuccessful" class="mr-3">
+      <ActionMessage :on="form.recentlySuccessful" class="mr-3">
         Saved.
-      </JetActionMessage>
-      <JetButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+      </ActionMessage>
+      <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
         Save
-      </JetButton>
+      </PrimaryButton>
     </template>
-  </JetFormSection>
+  </FormSection>
 </template>

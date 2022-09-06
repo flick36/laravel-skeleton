@@ -18,7 +18,7 @@ const deleteTeam = () => {
 </script>
 
 <template>
-  <JetActionSection>
+  <ActionSection>
     <template #title>
       Delete Team
     </template>
@@ -33,13 +33,13 @@ const deleteTeam = () => {
       </div>
 
       <div class="mt-5">
-        <JetDangerButton @click="confirmTeamDeletion">
+        <DangerButton @click="confirmTeamDeletion">
           Delete Team
-        </JetDangerButton>
+        </DangerButton>
       </div>
 
       <!-- Delete Team Confirmation Modal -->
-      <JetConfirmationModal :show="confirmingTeamDeletion" @close="confirmingTeamDeletion = false">
+      <ConfirmationModal :show="confirmingTeamDeletion" @close="confirmingTeamDeletion = false">
         <template #title>
           Delete Team
         </template>
@@ -49,20 +49,20 @@ const deleteTeam = () => {
         </template>
 
         <template #footer>
-          <JetSecondaryButton @click="confirmingTeamDeletion = false">
+          <JSecondaryButton @click="confirmingTeamDeletion = false">
             Cancel
-          </JetSecondaryButton>
+          </JSecondaryButton>
 
-          <JetDangerButton
+          <DangerButton
             class="ml-3"
             :class="{ 'opacity-25': form.processing }"
             :disabled="form.processing"
             @click="deleteTeam"
           >
             Delete Team
-          </JetDangerButton>
+          </DangerButton>
         </template>
-      </JetConfirmationModal>
+      </ConfirmationModal>
     </template>
-  </JetActionSection>
+  </ActionSection>
 </template>

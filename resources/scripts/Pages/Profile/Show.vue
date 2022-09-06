@@ -31,13 +31,13 @@ const {
         <div v-if="$page.props.jetstream.canUpdateProfileInformation && $page.props.user">
           <UpdateProfileInformationForm :user="$page.props.user" />
 
-          <JetSectionBorder />
+          <SectionBorder />
         </div>
 
         <div v-if="$page.props.jetstream.canUpdatePassword">
           <UpdatePasswordForm class="mt-10 sm:mt-0" />
 
-          <JetSectionBorder />
+          <SectionBorder />
         </div>
 
         <div v-if="$page.props.jetstream.canManageTwoFactorAuthentication">
@@ -46,13 +46,13 @@ const {
             class="mt-10 sm:mt-0"
           />
 
-          <JetSectionBorder />
+          <SectionBorder />
         </div>
 
         <LogoutOtherBrowserSessionsForm :sessions="sessions" class="mt-10 sm:mt-0" />
 
         <template v-if="$page.props.jetstream.hasAccountDeletionFeatures">
-          <JetSectionBorder />
+          <SectionBorder />
 
           <DeleteUserForm class="mt-10 sm:mt-0" />
         </template>

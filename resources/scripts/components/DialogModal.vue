@@ -17,7 +17,7 @@ const close = () => emit('close')
 </script>
 
 <template>
-  <JetModal
+  <Modal
     :show="show"
     :max-width="maxWidth"
     :closeable="closeable"
@@ -36,5 +36,5 @@ const close = () => emit('close')
     <div class="flex flex-row justify-end bg-gray-100 py-4 px-6 text-right">
       <slot name="footer" />
     </div>
-  </JetModal>
+  </Modal>
 </template>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import JetInput from './Input.vue'
+import TextInput from './TextInput.vue'
 import axios from '@/modules/axios'
 
 interface Props {
@@ -17,7 +17,7 @@ const {
 const emit = defineEmits<{ (e: 'confirmed'): void }>()
 
 let confirmingPassword = $ref(false)
-const passwordInput = $ref<InstanceType<typeof JetInput> | null>(null)
+const passwordInput = $ref<InstanceType<typeof TextInput> | null>(null)
 const form = reactive({
   password: '',
   error: '',
@@ -64,7 +64,7 @@ const confirmPassword = () => {
       <slot />
     </span>
 
-    <JetDialogModal :show="confirmingPassword" @close="closeModal">
+    <DialogModal :show="confirmingPassword" @close="closeModal">
       <template #title>
         {{ title }}
       </template>
@@ -73,7 +73,7 @@ const confirmPassword = () => {
         {{ content }}
 
         <div class="mt-4">
-          <JetInput
+          <TextInput
             ref="passwordInput"
             v-model="form.password"
             type="password"
@@ -82,24 +82,24 @@ const confirmPassword = () => {
             @keyup.enter="confirmPassword"
           />
 
-          <JetInputError :message="form.error" class="mt-2" />
+          <InputError :message="form.error" class="mt-2" />
         </div>
       </template>
 
       <template #footer>
-        <JetSecondaryButton @click="closeModal">
+        <SecondaryButton @click="closeModal">
           Cancel
-        </JetSecondaryButton>
+        </SecondaryButton>
 
-        <JetButton
+        <PrimaryButton
           class="ml-3"
           :class="{ 'opacity-25': form.processing }"
           :disabled="form.processing"
           @click="confirmPassword"
         >
           {{ button }}
-        </JetButton>
+        </PrimaryButton>
       </template>
-    </JetDialogModal>
+    </DialogModal>
   </span>
 </template>

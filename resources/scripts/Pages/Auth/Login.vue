@@ -24,9 +24,9 @@ const submit = () =>
 <template>
   <Head title="Log in" />
 
-  <JetAuthenticationCard>
+  <AuthenticationCard>
     <template #logo>
-      <JetAuthenticationCardLogo />
+      <AuthenticationCardLogo />
     </template>
 
     <div v-if="status" class="mb-4 text-sm font-medium text-green-600">
@@ -35,8 +35,8 @@ const submit = () =>
 
     <form @submit.prevent="submit">
       <div>
-        <JetLabel for="email" value="Email" />
-        <JetInput
+        <InputLabel for="email" value="Email" />
+        <TextInput
           id="email"
           v-model="form.email"
           type="email"
@@ -44,12 +44,12 @@ const submit = () =>
           required
           autofocus
         />
-        <JetInputError class="mt-2" :message="form.errors.email" />
+        <InputError class="mt-2" :message="form.errors.email" />
       </div>
 
       <div class="mt-4">
-        <JetLabel for="password" value="Password" />
-        <JetInput
+        <InputLabel for="password" value="Password" />
+        <TextInput
           id="password"
           v-model="form.password"
           type="password"
@@ -57,12 +57,12 @@ const submit = () =>
           required
           autocomplete="current-password"
         />
-        <JetInputError class="mt-2" :message="form.errors.password" />
+        <InputError class="mt-2" :message="form.errors.password" />
       </div>
 
       <div class="mt-4 block">
         <label class="flex items-center">
-          <JetCheckbox v-model:checked="form.remember" name="remember" />
+          <Checkbox v-model:checked="form.remember" name="remember" />
           <span class="ml-2 text-sm text-gray-600">Remember me</span>
         </label>
       </div>
@@ -72,10 +72,10 @@ const submit = () =>
           Forgot your password?
         </Link>
 
-        <JetButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+        <PrimaryButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
           Log in
-        </JetButton>
+        </PrimaryButton>
       </div>
     </form>
-  </JetAuthenticationCard>
+  </AuthenticationCard>
 </template>

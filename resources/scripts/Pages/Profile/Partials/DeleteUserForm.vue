@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import JetInput from '@/components/Jetstream/Input.vue'
+import TextInput from '@/components/TextInput.vue'
 
 let confirmingUserDeletion = $ref(false)
-const passwordInput = $ref<InstanceType<typeof JetInput> | null>(null)
+const passwordInput = $ref<InstanceType<typeof TextInput> | null>(null)
 
 const form = useForm({ password: '' })
 
@@ -28,7 +28,7 @@ const deleteUser = () =>
 </script>
 
 <template>
-  <JetActionSection>
+  <ActionSection>
     <template #title>
       Delete Account
     </template>
@@ -43,13 +43,13 @@ const deleteUser = () =>
       </div>
 
       <div class="mt-5">
-        <JetDangerButton @click="confirmUserDeletion">
+        <DangerButton @click="confirmUserDeletion">
           Delete Account
-        </JetDangerButton>
+        </DangerButton>
       </div>
 
       <!-- Delete Account Confirmation Modal -->
-      <JetDialogModal :show="confirmingUserDeletion" @close="closeModal">
+      <DialogModal :show="confirmingUserDeletion" @close="closeModal">
         <template #title>
           Delete Account
         </template>
@@ -58,7 +58,7 @@ const deleteUser = () =>
           Are you sure you want to delete your account? Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.
 
           <div class="mt-4">
-            <JetInput
+            <TextInput
               ref="passwordInput"
               v-model="form.password"
               type="password"
@@ -67,25 +67,25 @@ const deleteUser = () =>
               @keyup.enter="deleteUser"
             />
 
-            <JetInputError :message="form.errors.password" class="mt-2" />
+            <InputError :message="form.errors.password" class="mt-2" />
           </div>
         </template>
 
         <template #footer>
-          <JetSecondaryButton @click="closeModal">
+          <SecondaryButton @click="closeModal">
             Cancel
-          </JetSecondaryButton>
+          </SecondaryButton>
 
-          <JetDangerButton
+          <DangerButton
             class="ml-3"
             :class="{ 'opacity-25': form.processing }"
             :disabled="form.processing"
             @click="deleteUser"
           >
             Delete Account
-          </JetDangerButton>
+          </DangerButton>
         </template>
-      </JetDialogModal>
+      </DialogModal>
     </template>
-  </JetActionSection>
+  </ActionSection>
 </template>

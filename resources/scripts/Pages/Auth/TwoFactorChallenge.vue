@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import JetInput from '@/components/Jetstream/Input.vue'
+import TextInput from '@/components/TextInput.vue'
 
 let recovery = $ref(false)
-const codeInput = $ref<InstanceType<typeof JetInput> | null>(null)
-const recoveryCodeInput = $ref<InstanceType<typeof JetInput> | null>(null)
+const codeInput = $ref<InstanceType<typeof TextInput> | null>(null)
+const recoveryCodeInput = $ref<InstanceType<typeof TextInput> | null>(null)
 
 const form = useForm({
   code: '',
@@ -31,9 +31,9 @@ const submit = () => form.post('/two-factor-challenge')
 <template>
   <Head title="Two-factor Confirmation" />
 
-  <JetAuthenticationCard>
+  <AuthenticationCard>
     <template #logo>
-      <JetAuthenticationCardLogo />
+      <AuthenticationCardLogo />
     </template>
 
     <div class="mb-4 text-sm text-gray-600">
@@ -48,8 +48,8 @@ const submit = () => form.post('/two-factor-challenge')
 
     <form @submit.prevent="submit">
       <div v-if="!recovery">
-        <JetLabel for="code" value="Code" />
-        <JetInput
+        <InputLabel for="code" value="Code" />
+        <TextInput
           id="code"
           ref="codeInput"
           v-model="form.code"
@@ -59,12 +59,12 @@ const submit = () => form.post('/two-factor-challenge')
           autofocus
           autocomplete="one-time-code"
         />
-        <JetInputError class="mt-2" :message="form.errors.code" />
+        <InputError class="mt-2" :message="form.errors.code" />
       </div>
 
       <div v-else>
-        <JetLabel for="recovery_code" value="Recovery Code" />
-        <JetInput
+        <InputLabel for="recovery_code" value="Recovery Code" />
+        <TextInput
           id="recovery_code"
           ref="recoveryCodeInput"
           v-model="form.recovery_code"
@@ -72,7 +72,7 @@ const submit = () => form.post('/two-factor-challenge')
           class="mt-1 block w-full"
           autocomplete="one-time-code"
         />
-        <JetInputError class="mt-2" :message="form.errors.recovery_code" />
+        <InputError class="mt-2" :message="form.errors.recovery_code" />
       </div>
 
       <div class="mt-4 flex items-center justify-end">
@@ -86,10 +86,10 @@ const submit = () => form.post('/two-factor-challenge')
           </template>
         </button>
 
-        <JetButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+        <PrimaryButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
           Log in
-        </JetButton>
+        </PrimaryButton>
       </div>
     </form>
-  </JetAuthenticationCard>
+  </AuthenticationCard>
 </template>

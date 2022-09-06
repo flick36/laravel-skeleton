@@ -92,10 +92,10 @@ const displayableRole = (role = '') => {
 <template>
   <div>
     <div v-if="userPermissions.canAddTeamMembers">
-      <JetSectionBorder />
+      <SectionBorder />
 
       <!-- Add Team Member -->
-      <JetFormSection @submitted="addTeamMember">
+      <FormSection @submitted="addTeamMember">
         <template #title>
           Add Team Member
         </template>
@@ -113,20 +113,20 @@ const displayableRole = (role = '') => {
 
           <!-- Member Email -->
           <div class="col-span-6 sm:col-span-4">
-            <JetLabel for="email" value="Email" />
-            <JetInput
+            <InputLabel for="email" value="Email" />
+            <TextInput
               id="email"
               v-model="addTeamMemberForm.email"
               type="email"
               class="mt-1 block w-full"
             />
-            <JetInputError :message="addTeamMemberForm.errors.email" class="mt-2" />
+            <InputError :message="addTeamMemberForm.errors.email" class="mt-2" />
           </div>
 
           <!-- Role -->
           <div v-if="availableRoles.length > 0" class="col-span-6 lg:col-span-4">
-            <JetLabel for="roles" value="Role" />
-            <JetInputError :message="addTeamMemberForm.errors.role" class="mt-2" />
+            <InputLabel for="roles" value="Role" />
+            <InputError :message="addTeamMemberForm.errors.role" class="mt-2" />
 
             <div class="relative z-0 mt-1 cursor-pointer rounded-lg border border-gray-200">
               <button
@@ -167,22 +167,22 @@ const displayableRole = (role = '') => {
         </template>
 
         <template #actions>
-          <JetActionMessage :on="addTeamMemberForm.recentlySuccessful" class="mr-3">
+          <ActionMessage :on="addTeamMemberForm.recentlySuccessful" class="mr-3">
             Added.
-          </JetActionMessage>
+          </ActionMessage>
 
-          <JetButton :class="{ 'opacity-25': addTeamMemberForm.processing }" :disabled="addTeamMemberForm.processing">
+          <PrimaryButton :class="{ 'opacity-25': addTeamMemberForm.processing }" :disabled="addTeamMemberForm.processing">
             Add
-          </JetButton>
+          </PrimaryButton>
         </template>
-      </JetFormSection>
+      </FormSection>
     </div>
 
     <div v-if="team.team_invitations && team.team_invitations.length > 0 && userPermissions.canAddTeamMembers">
-      <JetSectionBorder />
+      <SectionBorder />
 
       <!-- Team Member Invitations -->
-      <JetActionSection class="mt-10 sm:mt-0">
+      <ActionSection class="mt-10 sm:mt-0">
         <template #title>
           Pending Team Invitations
         </template>
@@ -212,14 +212,14 @@ const displayableRole = (role = '') => {
             </div>
           </div>
         </template>
-      </JetActionSection>
+      </ActionSection>
     </div>
 
     <div v-if="team.users && team.users.length > 0">
-      <JetSectionBorder />
+      <SectionBorder />
 
       <!-- Manage Team Members -->
-      <JetActionSection class="mt-10 sm:mt-0">
+      <ActionSection class="mt-10 sm:mt-0">
         <template #title>
           Team Members
         </template>
@@ -274,11 +274,11 @@ const displayableRole = (role = '') => {
             </div>
           </div>
         </template>
-      </JetActionSection>
+      </ActionSection>
     </div>
 
     <!-- Role Management Modal -->
-    <JetDialogModal :show="currentlyManagingRole" @close="currentlyManagingRole = false">
+    <DialogModal :show="currentlyManagingRole" @close="currentlyManagingRole = false">
       <template #title>
         Manage Role
       </template>
@@ -324,23 +324,23 @@ const displayableRole = (role = '') => {
       </template>
 
       <template #footer>
-        <JetSecondaryButton @click="currentlyManagingRole = false">
+        <SecondaryButton @click="currentlyManagingRole = false">
           Cancel
-        </JetSecondaryButton>
+        </SecondaryButton>
 
-        <JetButton
+        <PrimaryButton
           class="ml-3"
           :class="{ 'opacity-25': updateRoleForm.processing }"
           :disabled="updateRoleForm.processing"
           @click="updateRole"
         >
           Save
-        </JetButton>
+        </PrimaryButton>
       </template>
-    </JetDialogModal>
+    </DialogModal>
 
     <!-- Leave Team Confirmation Modal -->
-    <JetConfirmationModal :show="confirmingLeavingTeam" @close="confirmingLeavingTeam = false">
+    <ConfirmationModal :show="confirmingLeavingTeam" @close="confirmingLeavingTeam = false">
       <template #title>
         Leave Team
       </template>
@@ -350,23 +350,23 @@ const displayableRole = (role = '') => {
       </template>
 
       <template #footer>
-        <JetSecondaryButton @click="confirmingLeavingTeam = false">
+        <SecondaryButton @click="confirmingLeavingTeam = false">
           Cancel
-        </JetSecondaryButton>
+        </SecondaryButton>
 
-        <JetDangerButton
+        <DangerButton
           class="ml-3"
           :class="{ 'opacity-25': leaveTeamForm.processing }"
           :disabled="leaveTeamForm.processing"
           @click="leaveTeam"
         >
           Leave
-        </JetDangerButton>
+        </DangerButton>
       </template>
-    </JetConfirmationModal>
+    </ConfirmationModal>
 
     <!-- Remove Team Member Confirmation Modal -->
-    <JetConfirmationModal :show="teamMemberBeingRemoved != null" @close="teamMemberBeingRemoved = null">
+    <ConfirmationModal :show="teamMemberBeingRemoved != null" @close="teamMemberBeingRemoved = null">
       <template #title>
         Remove Team Member
       </template>
@@ -376,19 +376,19 @@ const displayableRole = (role = '') => {
       </template>
 
       <template #footer>
-        <JetSecondaryButton @click="teamMemberBeingRemoved = null">
+        <SecondaryButton @click="teamMemberBeingRemoved = null">
           Cancel
-        </JetSecondaryButton>
+        </SecondaryButton>
 
-        <JetDangerButton
+        <DangerButton
           class="ml-3"
           :class="{ 'opacity-25': removeTeamMemberForm.processing }"
           :disabled="removeTeamMemberForm.processing"
           @click="removeTeamMember"
         >
           Remove
-        </JetDangerButton>
+        </DangerButton>
       </template>
-    </JetConfirmationModal>
+    </ConfirmationModal>
   </div>
 </template>

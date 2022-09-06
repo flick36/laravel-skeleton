@@ -18,7 +18,7 @@ const logout = () => Inertia.post('/logout')
   <div>
     <Head :title="title" />
 
-    <JetBanner />
+    <Banner />
 
     <div class="min-h-screen bg-gray-100">
       <nav class="border-b border-gray-100 bg-white">
@@ -29,22 +29,22 @@ const logout = () => Inertia.post('/logout')
               <!-- Logo -->
               <div class="flex shrink-0 items-center">
                 <Link href="/dashboard">
-                  <JetApplicationMark class="block h-9 w-auto" />
+                  <ApplicationMark class="block h-9 w-auto" />
                 </Link>
               </div>
 
               <!-- Navigation Links -->
               <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                <JetNavLink href="/dashboard" :active="$page.url === '/dashboard'">
+                <NavLink href="/dashboard" :active="$page.url === '/dashboard'">
                   Dashboard
-                </JetNavLink>
+                </NavLink>
               </div>
             </div>
 
             <div class="hidden sm:ml-6 sm:flex sm:items-center">
               <div class="relative ml-3">
                 <!-- Teams Dropdown -->
-                <JetDropdown v-if="$page.props.jetstream.hasTeamFeatures" align="right" width="60">
+                <Dropdown v-if="$page.props.jetstream.hasTeamFeatures" align="right" width="60">
                   <template #trigger>
                     <span class="inline-flex rounded-md">
                       <button type="button" class="inline-flex items-center rounded-md border border-transparent bg-white py-2 px-3 text-sm font-medium leading-4 text-gray-500 transition hover:bg-gray-50 hover:text-gray-700 focus:bg-gray-50 focus:outline-none active:bg-gray-50">
@@ -71,13 +71,13 @@ const logout = () => Inertia.post('/logout')
                         </div>
 
                         <!-- Team Settings -->
-                        <JetDropdownLink :href="`/teams/${$page.props.user?.current_team?.id}`">
+                        <DropdownLink :href="`/teams/${$page.props.user?.current_team?.id}`">
                           Team Settings
-                        </JetDropdownLink>
+                        </DropdownLink>
 
-                        <JetDropdownLink v-if="$page.props.jetstream.canCreateTeams" href="/teams/create">
+                        <DropdownLink v-if="$page.props.jetstream.canCreateTeams" href="/teams/create">
                           Create New Team
-                        </JetDropdownLink>
+                        </DropdownLink>
 
                         <div class="border-t border-gray-100" />
 
@@ -88,7 +88,7 @@ const logout = () => Inertia.post('/logout')
 
                         <template v-for="team in $page.props.user?.all_teams" :key="team.id">
                           <form @submit.prevent="switchToTeam(team)">
-                            <JetDropdownLink as="button">
+                            <DropdownLink as="button">
                               <div class="flex items-center">
                                 <svg
                                   v-if="team.id === $page.props.user?.current_team_id"
@@ -102,18 +102,18 @@ const logout = () => Inertia.post('/logout')
                                 ><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                                 <div>{{ team.name }}</div>
                               </div>
-                            </JetDropdownLink>
+                            </DropdownLink>
                           </form>
                         </template>
                       </template>
                     </div>
                   </template>
-                </JetDropdown>
+                </Dropdown>
               </div>
 
               <!-- Settings Dropdown -->
               <div class="relative ml-3">
-                <JetDropdown align="right" width="48">
+                <Dropdown align="right" width="48">
                   <template #trigger>
                     <button v-if="$page.props.jetstream.managesProfilePhotos" class="flex rounded-full border-2 border-transparent text-sm transition focus:border-gray-300 focus:outline-none">
                       <img class="h-8 w-8 rounded-full object-cover" :src="$page.props.user?.profile_photo_url" :alt="$page.props.user?.name">
@@ -141,24 +141,24 @@ const logout = () => Inertia.post('/logout')
                       Manage Account
                     </div>
 
-                    <JetDropdownLink href="/user/profile">
+                    <DropdownLink href="/user/profile">
                       Profile
-                    </JetDropdownLink>
+                    </DropdownLink>
 
-                    <JetDropdownLink v-if="$page.props.jetstream.hasApiFeatures" href="/user/api-tokens">
+                    <DropdownLink v-if="$page.props.jetstream.hasApiFeatures" href="/user/api-tokens">
                       API Tokens
-                    </JetDropdownLink>
+                    </DropdownLink>
 
                     <div class="border-t border-gray-100" />
 
                     <!-- Authentication -->
                     <form @submit.prevent="logout">
-                      <JetDropdownLink as="button">
+                      <DropdownLink as="button">
                         Log Out
-                      </JetDropdownLink>
+                      </DropdownLink>
                     </form>
                   </template>
-                </JetDropdown>
+                </Dropdown>
               </div>
             </div>
 
@@ -194,9 +194,9 @@ const logout = () => Inertia.post('/logout')
         <!-- Responsive Navigation Menu -->
         <div :class="{ block: showingNavigationDropdown, hidden: !showingNavigationDropdown }" class="sm:hidden">
           <div class="space-y-1 pt-2 pb-3">
-            <JetResponsiveNavLink href="/dashboard" :active="$page.url === '/dashboard'">
+            <ResponsiveNavLink href="/dashboard" :active="$page.url === '/dashboard'">
               Dashboard
-            </JetResponsiveNavLink>
+            </ResponsiveNavLink>
           </div>
 
           <!-- Responsive Settings Options -->
@@ -217,19 +217,19 @@ const logout = () => Inertia.post('/logout')
             </div>
 
             <div class="mt-3 space-y-1">
-              <JetResponsiveNavLink href="/user/profile" :active="$page.url === '/user/profile'">
+              <ResponsiveNavLink href="/user/profile" :active="$page.url === '/user/profile'">
                 Profile
-              </JetResponsiveNavLink>
+              </ResponsiveNavLink>
 
-              <JetResponsiveNavLink v-if="$page.props.jetstream.hasApiFeatures" href="/user/api-tokens" :active="$page.url === '/user/api-tokens'">
+              <ResponsiveNavLink v-if="$page.props.jetstream.hasApiFeatures" href="/user/api-tokens" :active="$page.url === '/user/api-tokens'">
                 API Tokens
-              </JetResponsiveNavLink>
+              </ResponsiveNavLink>
 
               <!-- Authentication -->
               <form method="POST" @submit.prevent="logout">
-                <JetResponsiveNavLink as="button">
+                <ResponsiveNavLink as="button">
                   Log Out
-                </JetResponsiveNavLink>
+                </ResponsiveNavLink>
               </form>
 
               <!-- Team Management -->
@@ -241,13 +241,13 @@ const logout = () => Inertia.post('/logout')
                 </div>
 
                 <!-- Team Settings -->
-                <JetResponsiveNavLink href="`/teams/${$page.props.user?.current_team}`" :active="$page.url === `/teams/${$page.props.user?.current_team}`">
+                <ResponsiveNavLink href="`/teams/${$page.props.user?.current_team}`" :active="$page.url === `/teams/${$page.props.user?.current_team}`">
                   Team Settings
-                </JetResponsiveNavLink>
+                </ResponsiveNavLink>
 
-                <JetResponsiveNavLink v-if="$page.props.jetstream.canCreateTeams" href="/teams/create" :active="$page.url === '/teams/create'">
+                <ResponsiveNavLink v-if="$page.props.jetstream.canCreateTeams" href="/teams/create" :active="$page.url === '/teams/create'">
                   Create New Team
-                </JetResponsiveNavLink>
+                </ResponsiveNavLink>
 
                 <div class="border-t border-gray-200" />
 
@@ -258,7 +258,7 @@ const logout = () => Inertia.post('/logout')
 
                 <template v-for="team in $page.props.user?.all_teams" :key="team.id">
                   <form @submit.prevent="switchToTeam(team)">
-                    <JetResponsiveNavLink as="button">
+                    <ResponsiveNavLink as="button">
                       <div class="flex items-center">
                         <svg
                           v-if="team.id === $page.props.user?.current_team_id"
@@ -272,7 +272,7 @@ const logout = () => Inertia.post('/logout')
                         ><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                         <div>{{ team.name }}</div>
                       </div>
-                    </JetResponsiveNavLink>
+                    </ResponsiveNavLink>
                   </form>
                 </template>
               </template>

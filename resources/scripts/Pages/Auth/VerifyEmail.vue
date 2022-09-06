@@ -11,9 +11,9 @@ const verificationLinkSent = $computed(() => status === 'verification-link-sent'
 <template>
   <Head title="Email Verification" />
 
-  <JetAuthenticationCard>
+  <AuthenticationCard>
     <template #logo>
-      <JetAuthenticationCardLogo />
+      <AuthenticationCardLogo />
     </template>
 
     <div class="mb-4 text-sm text-gray-600">
@@ -26,9 +26,9 @@ const verificationLinkSent = $computed(() => status === 'verification-link-sent'
 
     <form @submit.prevent="submit">
       <div class="mt-4 flex items-center justify-between">
-        <JetButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+        <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
           Resend Verification Email
-        </JetButton>
+        </PrimaryButton>
 
         <div>
           <Link
@@ -49,5 +49,5 @@ const verificationLinkSent = $computed(() => status === 'verification-link-sent'
         </div>
       </div>
     </form>
-  </JetAuthenticationCard>
+  </AuthenticationCard>
 </template>

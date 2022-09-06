@@ -9,9 +9,9 @@ const submit = () => form.post('/forgot-password')
 <template>
   <Head title="Forgot Password" />
 
-  <JetAuthenticationCard>
+  <AuthenticationCard>
     <template #logo>
-      <JetAuthenticationCardLogo />
+      <AuthenticationCardLogo />
     </template>
 
     <div class="mb-4 text-sm text-gray-600">
@@ -24,8 +24,8 @@ const submit = () => form.post('/forgot-password')
 
     <form @submit.prevent="submit">
       <div>
-        <JetLabel for="email" value="Email" />
-        <JetInput
+        <InputLabel for="email" value="Email" />
+        <TextInput
           id="email"
           v-model="form.email"
           type="email"
@@ -33,14 +33,14 @@ const submit = () => form.post('/forgot-password')
           required
           autofocus
         />
-        <JetInputError class="mt-2" :message="form.errors.email" />
+        <InputError class="mt-2" :message="form.errors.email" />
       </div>
 
       <div class="mt-4 flex items-center justify-end">
-        <JetButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+        <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
           Email Password Reset Link
-        </JetButton>
+        </PrimaryButton>
       </div>
     </form>
-  </JetAuthenticationCard>
+  </AuthenticationCard>
 </template>
