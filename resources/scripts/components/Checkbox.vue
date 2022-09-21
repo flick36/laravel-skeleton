@@ -1,6 +1,6 @@
 <script setup lang="ts">
 interface Props {
-  checked: boolean
+  checked: boolean | string[]
   value?: string
 }
 
@@ -9,7 +9,7 @@ const {
   value = '',
 } = defineProps<Props>()
 
-const emit = defineEmits<{ (e: 'update:checked', checked: boolean): void }>()
+const emit = defineEmits<{ (e: 'update:checked', checked: Props['checked']): void }>()
 
 const proxyChecked = $computed({
   get: () => checked,
