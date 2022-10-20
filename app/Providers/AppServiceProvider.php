@@ -25,6 +25,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Model::preventAccessingMissingAttributes();
+        Model::preventSilentlyDiscardingAttributes();
         Model::preventLazyLoading(! app()->isProduction());
 
         Relation::enforceMorphMap([
