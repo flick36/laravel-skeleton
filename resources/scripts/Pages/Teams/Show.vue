@@ -3,7 +3,7 @@ import AppLayout from '@/layouts/AppLayout.vue'
 import DeleteTeamForm from '@/Pages/Teams/Partials/DeleteTeamForm.vue'
 import TeamMemberManager from '@/Pages/Teams/Partials/TeamMemberManager.vue'
 import UpdateTeamNameForm from '@/Pages/Teams/Partials/UpdateTeamNameForm.vue'
-import type { JetstreamTeamPermissions, Role, Team } from '@/types'
+import type { JetstreamTeamPermissions, Role, Team } from '@/types/general'
 
 interface Props {
   team: Team

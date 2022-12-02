@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ApiToken, CRUDPermissions } from '@/types'
+import type { ApiToken, CRUDPermissions } from '@/types/general'
 
 interface Props {
   tokens: ApiToken[]

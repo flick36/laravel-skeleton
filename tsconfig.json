@@ -38,5 +38,5 @@
       "@/*": ["resources/scripts/*"]
     }
   },
-  "exclude": ["dist", "node_modules", "vendor", "cypress"]
+  "exclude": ["dist", "public/**/*", "node_modules", "vendor", "cypress"]
 }

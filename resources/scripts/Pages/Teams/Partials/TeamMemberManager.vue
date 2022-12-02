@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { JetstreamTeamPermissions, JetstreamUser, Role, Team, TeamInvitation } from '@/types'
+import type { JetstreamTeamPermissions, JetstreamUser, Role, Team, TeamInvitation } from '@/types/general'
 
 interface Props {
   team: Team

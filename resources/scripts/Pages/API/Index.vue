@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import ApiTokenManager from '@/Pages/API/Partials/ApiTokenManager.vue'
 import AppLayout from '@/layouts/AppLayout.vue'
-import type { ApiToken, CRUDPermissions } from '@/types'
+import type { ApiToken, CRUDPermissions } from '@/types/general'
 
 interface Props {
   tokens: ApiToken[]

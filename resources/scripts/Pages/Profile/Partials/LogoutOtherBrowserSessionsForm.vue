@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import TextInput from '@/components/TextInput.vue'
-import type { UserSession } from '@/types'
+import type { UserSession } from '@/types/general'
 
 const { sessions } = defineProps<{ sessions: UserSession[] }>()
 

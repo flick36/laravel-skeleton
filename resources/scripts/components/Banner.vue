@@ -4,9 +4,7 @@ let show = $ref(true)
 const style = $computed(() => usePage().props.value.jetstream.flash?.bannerStyle || 'success')
 const message = $computed(() => usePage().props.value.jetstream.flash?.banner || '')
 
-watch($$(message), async () => {
-  show = true
-})
+watch($$(message), async () => show = true)
 </script>
 
 <template>

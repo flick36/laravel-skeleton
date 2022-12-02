@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { JetstreamUser } from '@/types'
+import type { JetstreamUser } from '@/types/general'
 
 const { user } = defineProps<{ user: JetstreamUser }>()
 

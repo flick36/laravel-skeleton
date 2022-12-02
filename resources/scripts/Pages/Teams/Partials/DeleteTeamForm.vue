@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Team } from '@/types'
+import type { Team } from '@/types/general'
 
 const { team } = defineProps<{ team: Team }>()
 

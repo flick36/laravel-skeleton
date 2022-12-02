@@ -14,17 +14,12 @@ export default defineConfig({
   plugins: [
     Laravel({
       input: ['resources/scripts/main.ts'],
+      valetTls: true,
       refresh: true,
     }),
 
     Vue({
-      reactivityTransform: true,
-      template: {
-        transformAssetUrls: {
-          base: null,
-          includeAbsolute: false,
-        },
-      },
+      reactivityTransform: true
     }),
 
     // https://github.com/antfu/unplugin-auto-import
@@ -46,7 +41,7 @@ export default defineConfig({
           ],
         },
       ],
-      dts: 'resources/scripts/auto-imports.d.ts',
+      dts: 'resources/scripts/types/auto-imports.d.ts',
       vueTemplate: true,
     }),
 
@@ -61,7 +56,7 @@ export default defineConfig({
             return { name: componentName, from: '@inertiajs/inertia-vue3' }
         },
       ],
-      dts: 'resources/scripts/components.d.ts',
+      dts: 'resources/scripts/types/components.d.ts',
     }),
   ],
 })
