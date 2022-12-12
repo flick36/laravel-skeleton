@@ -3,6 +3,7 @@ import Laravel from 'laravel-vite-plugin'
 import Vue from '@vitejs/plugin-vue'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
+import Inspector from 'vite-plugin-vue-inspector'
 
 export default defineConfig({
   resolve: {
@@ -57,6 +58,12 @@ export default defineConfig({
         },
       ],
       dts: 'resources/scripts/types/components.d.ts',
+    }),
+
+    // https://github.com/webfansplz/vite-plugin-vue-inspector
+    Inspector({
+      toggleButtonVisibility: 'never',
+      appendTo: 'main.ts'
     }),
   ],
 })

@@ -18,7 +18,11 @@ declare module '@inertiajs/inertia' {
       canUpdatePassword: boolean
       canUpdateProfileInformation: boolean
       hasEmailVerification: boolean
-      flash: Record<string, unknown>
+      flash: {
+        bannerStyle?: 'success' | 'danger'
+        banner?: string
+        token?: string
+      }
       hasAccountDeletionFeatures: boolean
       hasApiFeatures: boolean
       hasTeamFeatures: boolean

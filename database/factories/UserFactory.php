@@ -26,6 +26,9 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'password' => '$argon2id$v=19$m=1024,t=2,p=2$ekxkYk1wNmxSellHRDZ2Qw$1F2Z8YhD3QrbSCGls15fQw', // password
             'remember_token' => Str::random(10),
+            'current_team_id' => null,
+            'profile_photo_path' => null,
+            'two_factor_secret' => null,
         ];
     }
 
