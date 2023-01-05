@@ -21,10 +21,9 @@ class HandleInertiaRequests extends Middleware
      *
      * @see https://inertiajs.com/asset-versioning
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return string|null
+     * @return array<string, mixed>
      */
-    public function version(Request $request): ?string
+    public function version(Request $request): string|null
     {
         return parent::version($request);
     }
