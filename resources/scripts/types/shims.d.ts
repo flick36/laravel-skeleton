@@ -1,3 +1,4 @@
+import type { Page } from '@inertiajs/core'
 import type { JetstreamUser } from '@/types/general'
 
 declare interface Window {
@@ -10,8 +11,8 @@ declare module '*.vue' {
   export default component
 }
 
-declare module '@inertiajs/inertia' {
-  export interface PageProps {
+declare module '@inertiajs/core' {
+  interface PageProps {
     jetstream: {
       canCreateTeams: boolean
       canManageTwoFactorAuthentication: boolean
@@ -29,6 +30,6 @@ declare module '@inertiajs/inertia' {
       hasTermsAndPrivacyPolicyFeature: boolean
       managesProfilePhotos: boolean
     }
-    user: JetstreamUser | null
+    auth: { user: JetstreamUser | null }
   }
 }

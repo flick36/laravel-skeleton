@@ -21,7 +21,7 @@ const {
 <template>
   <AppLayout title="Team Settings">
     <template #header>
-      <h2 class="text-xl font-semibold leading-tight text-gray-800">
+      <h2 class="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
         Team Settings
       </h2>
     </template>

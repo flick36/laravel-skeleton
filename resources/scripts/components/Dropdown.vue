@@ -8,7 +8,7 @@ interface Props {
 const {
   align = 'right',
   width = '48',
-  contentClasses = ['py-1', 'bg-white'],
+  contentClasses = ['py-1', 'bg-white', 'dark:bg-gray-700'],
 } = defineProps<Props>()
 
 let open = $ref(false)

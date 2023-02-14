@@ -19,7 +19,7 @@ const {
 <template>
   <AppLayout title="API Tokens">
     <template #header>
-      <h2 class="text-xl font-semibold leading-tight text-gray-800">
+      <h2 class="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
         API Tokens
       </h2>
     </template>

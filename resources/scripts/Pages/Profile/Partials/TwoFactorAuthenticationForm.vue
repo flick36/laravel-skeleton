@@ -12,7 +12,7 @@ let recoveryCodes = $ref([])
 
 const confirmationForm = useForm({ code: '' })
 
-const twoFactorEnabled = $computed(() => !enabling && usePage().props.value.user?.two_factor_enabled)
+const twoFactorEnabled = $computed(() => !enabling && usePage().props.auth?.user?.two_factor_enabled)
 
 watch($$(twoFactorEnabled), () => {
   if (!twoFactorEnabled) {
@@ -32,7 +32,7 @@ const regenerateRecoveryCodes = () => axios.post('/user/two-factor-recovery-code
 const enableTwoFactorAuthentication = () => {
   enabling = true
 
-  Inertia.post('/user/two-factor-authentication', {}, {
+  router.post('/user/two-factor-authentication', {}, {
     preserveScroll: true,
     onSuccess: () => Promise.all([
       showQrCode(),
@@ -62,7 +62,7 @@ const confirmTwoFactorAuthentication = () => {
 const disableTwoFactorAuthentication = () => {
   disabling = true
 
-  Inertia.delete('/user/two-factor-authentication', {
+  router.delete('/user/two-factor-authentication', {
     preserveScroll: true,
     onSuccess: () => {
       disabling = false
@@ -85,32 +85,32 @@ const disableTwoFactorAuthentication = () => {
     <template #content>
       <h3
         v-if="twoFactorEnabled && !confirming"
-        class="text-lg font-medium text-gray-900"
+        class="text-lg font-medium text-gray-900 dark:text-gray-100"
       >
         You have enabled two factor authentication.
       </h3>
 
       <h3
         v-else-if="twoFactorEnabled && confirming"
-        class="text-lg font-medium text-gray-900"
+        class="text-lg font-medium text-gray-900 dark:text-gray-100"
       >
         Finish enabling two factor authentication.
       </h3>
 
       <h3
         v-else
-        class="text-lg font-medium text-gray-900"
+        class="text-lg font-medium text-gray-900 dark:text-gray-100"
       >
         You have not enabled two factor authentication.
       </h3>
 
-      <div class="mt-3 max-w-xl text-sm text-gray-600">
+      <div class="mt-3 max-w-xl text-sm text-gray-600 dark:text-gray-400">
         <p>When two factor authentication is enabled, you will be prompted for a secure, random token during authentication. You may retrieve this token from your phone's Google Authenticator application.</p>
       </div>
 
       <div v-if="twoFactorEnabled">
         <div v-if="qrCode">
-          <div class="mt-4 max-w-xl text-sm text-gray-600">
+          <div class="mt-4 max-w-xl text-sm text-gray-600 dark:text-gray-400">
             <p
               v-if="confirming"
               class="font-semibold"
@@ -127,7 +127,7 @@ const disableTwoFactorAuthentication = () => {
 
           <div class="mt-4" v-html="qrCode" />
 
-          <div v-if="setupKey" class="mt-4 max-w-xl text-sm text-gray-600">
+          <div v-if="setupKey" class="mt-4 max-w-xl text-sm text-gray-600 dark:text-gray-400">
             <p class="font-semibold">
               Setup Key:
               <span v-html="setupKey" />
@@ -154,7 +154,7 @@ const disableTwoFactorAuthentication = () => {
         </div>
 
         <div v-if="recoveryCodes.length > 0 && !confirming">
-          <div class="mt-4 max-w-xl text-sm text-gray-600">
+          <div class="mt-4 max-w-xl text-sm text-gray-600 dark:text-gray-400">
             <p
               class="font-semibold"
             >
@@ -162,7 +162,7 @@ const disableTwoFactorAuthentication = () => {
             </p>
           </div>
 
-          <div class="mt-4 grid max-w-xl gap-1 rounded-lg bg-gray-100 p-4 font-mono text-sm">
+          <div class="mt-4 grid max-w-xl gap-1 rounded-lg bg-gray-100 p-4 font-mono text-sm dark:bg-gray-900">
             <div v-for="code in recoveryCodes" :key="code">
               {{ code }}
             </div>

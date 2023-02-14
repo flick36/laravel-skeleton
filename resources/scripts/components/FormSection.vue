@@ -17,7 +17,7 @@ const hasActions = $computed(() => !!useSlots().actions)
     <div class="mt-5 md:col-span-2 md:mt-0">
       <form @submit.prevent="$emit('submitted')">
         <div
-          class="bg-white py-5 px-4 shadow sm:p-6"
+          class="bg-white py-5 px-4 shadow dark:bg-gray-800 sm:p-6"
           :class="hasActions ? 'sm:rounded-tl-md sm:rounded-tr-md' : 'sm:rounded-md'"
         >
           <div class="grid grid-cols-6 gap-6">
@@ -25,7 +25,7 @@ const hasActions = $computed(() => !!useSlots().actions)
           </div>
         </div>
 
-        <div v-if="hasActions" class="flex items-center justify-end bg-gray-50 py-3 px-4 text-right shadow sm:rounded-b-md sm:px-6">
+        <div v-if="hasActions" class="flex items-center justify-end bg-gray-50 py-3 px-4 text-right shadow dark:bg-gray-800 sm:rounded-b-md sm:px-6">
           <slot name="actions" />
         </div>
       </form>

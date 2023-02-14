@@ -54,7 +54,7 @@ const updatePhotoPreview = () => {
 }
 
 const deletePhoto = () => {
-  Inertia.delete('/user/profile-photo', {
+  router.delete('/user/profile-photo', {
     preserveScroll: true,
     onSuccess: () => {
       photoPreview = null
@@ -133,23 +133,24 @@ const deletePhoto = () => {
           v-model="form.email"
           type="email"
           class="mt-1 block w-full"
+          autocomplete="username"
         />
         <InputError :message="form.errors.email" class="mt-2" />
 
         <div v-show="$page.props.jetstream.hasEmailVerification && user.email_verified_at === null">
-          <p class="mt-2 text-sm">
+          <p class="mt-2 text-sm dark:text-white">
             Your email address is unverified.
             <Link
               href="/email/verification-notification"
               method="post"
               as="button"
-              class="text-gray-600 underline hover:text-gray-900"
+              class="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:text-gray-400 dark:hover:text-gray-100 dark:focus:ring-offset-gray-800"
               @click.prevent="sendEmailVerification"
             >
               Click here to re-send the verification email.
             </Link>
           </p>
-          <div v-show="verificationLinkSent" class="mt-2 text-sm font-medium text-green-600">
+          <div v-show="verificationLinkSent" class="mt-2 text-sm font-medium text-green-600 dark:text-green-400">
             A new verification link has been sent to your email address.
           </div>
         </div>

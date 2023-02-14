@@ -8,13 +8,10 @@ declare global {
   const $ref: typeof import('vue/macros')['$ref']
   const $shallowRef: typeof import('vue/macros')['$shallowRef']
   const $toRef: typeof import('vue/macros')['$toRef']
-  const App: typeof import('@inertiajs/inertia-vue3')['App']
   const EffectScope: typeof import('vue')['EffectScope']
-  const Inertia: typeof import('@inertiajs/inertia')['Inertia']
-  const InertiaProgress: typeof import('@inertiajs/progress')['InertiaProgress']
   const computed: typeof import('vue')['computed']
   const createApp: typeof import('vue')['createApp']
-  const createInertiaApp: typeof import('@inertiajs/inertia-vue3')['createInertiaApp']
+  const createInertiaApp: typeof import('@inertiajs/vue3')['createInertiaApp']
   const customRef: typeof import('vue')['customRef']
   const defineAsyncComponent: typeof import('vue')['defineAsyncComponent']
   const defineComponent: typeof import('vue')['defineComponent']
@@ -42,13 +39,12 @@ declare global {
   const onServerPrefetch: typeof import('vue')['onServerPrefetch']
   const onUnmounted: typeof import('vue')['onUnmounted']
   const onUpdated: typeof import('vue')['onUpdated']
-  const plugin: typeof import('@inertiajs/inertia-vue3')['plugin']
   const provide: typeof import('vue')['provide']
   const reactive: typeof import('vue')['reactive']
   const readonly: typeof import('vue')['readonly']
   const ref: typeof import('vue')['ref']
   const resolveComponent: typeof import('vue')['resolveComponent']
-  const resolveDirective: typeof import('vue')['resolveDirective']
+  const router: typeof import('@inertiajs/vue3')['router']
   const shallowReactive: typeof import('vue')['shallowReactive']
   const shallowReadonly: typeof import('vue')['shallowReadonly']
   const shallowRef: typeof import('vue')['shallowRef']
@@ -60,14 +56,19 @@ declare global {
   const useAttrs: typeof import('vue')['useAttrs']
   const useCssModule: typeof import('vue')['useCssModule']
   const useCssVars: typeof import('vue')['useCssVars']
-  const useForm: typeof import('@inertiajs/inertia-vue3')['useForm']
-  const usePage: typeof import('@inertiajs/inertia-vue3')['usePage']
-  const useRemember: typeof import('@inertiajs/inertia-vue3')['useRemember']
+  const useForm: typeof import('@inertiajs/vue3')['useForm']
+  const usePage: typeof import('@inertiajs/vue3')['usePage']
+  const useRemember: typeof import('@inertiajs/vue3')['useRemember']
   const useSlots: typeof import('vue')['useSlots']
   const watch: typeof import('vue')['watch']
   const watchEffect: typeof import('vue')['watchEffect']
   const watchPostEffect: typeof import('vue')['watchPostEffect']
   const watchSyncEffect: typeof import('vue')['watchSyncEffect']
+}
+// for type re-export
+declare global {
+  // @ts-ignore
+  export type { Component,ComponentPublicInstance,ComputedRef,InjectionKey,PropType,Ref,VNode } from 'vue'
 }
 // for vue template auto import
 import { UnwrapRef } from 'vue'
@@ -80,13 +81,10 @@ declare module 'vue' {
     readonly $ref: UnwrapRef<typeof import('vue/macros')['$ref']>
     readonly $shallowRef: UnwrapRef<typeof import('vue/macros')['$shallowRef']>
     readonly $toRef: UnwrapRef<typeof import('vue/macros')['$toRef']>
-    readonly App: UnwrapRef<typeof import('@inertiajs/inertia-vue3')['App']>
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
-    readonly Inertia: UnwrapRef<typeof import('@inertiajs/inertia')['Inertia']>
-    readonly InertiaProgress: UnwrapRef<typeof import('@inertiajs/progress')['InertiaProgress']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
     readonly createApp: UnwrapRef<typeof import('vue')['createApp']>
-    readonly createInertiaApp: UnwrapRef<typeof import('@inertiajs/inertia-vue3')['createInertiaApp']>
+    readonly createInertiaApp: UnwrapRef<typeof import('@inertiajs/vue3')['createInertiaApp']>
     readonly customRef: UnwrapRef<typeof import('vue')['customRef']>
     readonly defineAsyncComponent: UnwrapRef<typeof import('vue')['defineAsyncComponent']>
     readonly defineComponent: UnwrapRef<typeof import('vue')['defineComponent']>
@@ -114,13 +112,12 @@ declare module 'vue' {
     readonly onServerPrefetch: UnwrapRef<typeof import('vue')['onServerPrefetch']>
     readonly onUnmounted: UnwrapRef<typeof import('vue')['onUnmounted']>
     readonly onUpdated: UnwrapRef<typeof import('vue')['onUpdated']>
-    readonly plugin: UnwrapRef<typeof import('@inertiajs/inertia-vue3')['plugin']>
     readonly provide: UnwrapRef<typeof import('vue')['provide']>
     readonly reactive: UnwrapRef<typeof import('vue')['reactive']>
     readonly readonly: UnwrapRef<typeof import('vue')['readonly']>
     readonly ref: UnwrapRef<typeof import('vue')['ref']>
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
-    readonly resolveDirective: UnwrapRef<typeof import('vue')['resolveDirective']>
+    readonly router: UnwrapRef<typeof import('@inertiajs/vue3')['router']>
     readonly shallowReactive: UnwrapRef<typeof import('vue')['shallowReactive']>
     readonly shallowReadonly: UnwrapRef<typeof import('vue')['shallowReadonly']>
     readonly shallowRef: UnwrapRef<typeof import('vue')['shallowRef']>
@@ -132,9 +129,9 @@ declare module 'vue' {
     readonly useAttrs: UnwrapRef<typeof import('vue')['useAttrs']>
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
     readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>
-    readonly useForm: UnwrapRef<typeof import('@inertiajs/inertia-vue3')['useForm']>
-    readonly usePage: UnwrapRef<typeof import('@inertiajs/inertia-vue3')['usePage']>
-    readonly useRemember: UnwrapRef<typeof import('@inertiajs/inertia-vue3')['useRemember']>
+    readonly useForm: UnwrapRef<typeof import('@inertiajs/vue3')['useForm']>
+    readonly usePage: UnwrapRef<typeof import('@inertiajs/vue3')['usePage']>
+    readonly useRemember: UnwrapRef<typeof import('@inertiajs/vue3')['useRemember']>
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>
     readonly watch: UnwrapRef<typeof import('vue')['watch']>
     readonly watchEffect: UnwrapRef<typeof import('vue')['watchEffect']>

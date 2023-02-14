@@ -39,9 +39,6 @@ class AddTeamMember implements AddsTeamMembers
      * Validate the add member operation.
      *
      * @param  mixed  $team
-     * @param  string  $email
-     * @param  string|null  $role
-     * @return void
      */
     protected function validate(Team $team, string $email, ?string $role): void
     {

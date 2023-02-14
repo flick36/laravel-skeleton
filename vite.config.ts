@@ -20,7 +20,7 @@ export default defineConfig({
     }),
 
     Vue({
-      reactivityTransform: true
+      reactivityTransform: true,
     }),
 
     // https://github.com/antfu/unplugin-auto-import
@@ -30,15 +30,12 @@ export default defineConfig({
         'vue/macros',
         // custom
         {
-          '@inertiajs/inertia': ['Inertia'],
-          '@inertiajs/progress': ['InertiaProgress'],
-          '@inertiajs/inertia-vue3': [
-            'App',
-            'plugin',
+          '@inertiajs/vue3': [
             'createInertiaApp',
             'useForm',
             'useRemember',
             'usePage',
+            'router',
           ],
         },
       ],
@@ -54,7 +51,7 @@ export default defineConfig({
         (componentName) => {
           // importing Head and Link from Inertia
           if (['Head', 'Link'].includes(componentName))
-            return { name: componentName, from: '@inertiajs/inertia-vue3' }
+            return { name: componentName, from: '@inertiajs/vue3' }
         },
       ],
       dts: 'resources/scripts/types/components.d.ts',
@@ -63,7 +60,7 @@ export default defineConfig({
     // https://github.com/webfansplz/vite-plugin-vue-inspector
     Inspector({
       toggleButtonVisibility: 'never',
-      appendTo: 'main.ts'
+      appendTo: 'main.ts',
     }),
   ],
 })

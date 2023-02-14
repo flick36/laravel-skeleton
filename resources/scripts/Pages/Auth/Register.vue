@@ -45,6 +45,7 @@ const submit = () => {
           type="email"
           class="mt-1 block w-full"
           required
+          autocomplete="username"
         />
         <InputError class="mt-2" :message="form.errors.email" />
       </div>
@@ -81,7 +82,7 @@ const submit = () => {
             <Checkbox id="terms" v-model:checked="form.terms" name="terms" required />
 
             <div class="ml-2">
-              I agree to the <a target="_blank" href="/terms-of-service" class="text-sm text-gray-600 underline hover:text-gray-900">Terms of Service</a> and <a target="_blank" href="/privacy-policy" class="text-sm text-gray-600 underline hover:text-gray-900">Privacy Policy</a>
+              I agree to the <a target="_blank" href="/terms-of-service" class="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:text-gray-400 dark:hover:text-gray-100 dark:focus:ring-offset-gray-800">Terms of Service</a> and <a target="_blank" href="/privacy-policy" class="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:text-gray-400 dark:hover:text-gray-100 dark:focus:ring-offset-gray-800">Privacy Policy</a>
             </div>
           </div>
 
@@ -90,7 +91,7 @@ const submit = () => {
       </div>
 
       <div class="mt-4 flex items-center justify-end">
-        <Link href="/login" class="text-sm text-gray-600 underline hover:text-gray-900">
+        <Link href="/login" class="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:text-gray-400 dark:hover:text-gray-100 dark:focus:ring-offset-gray-800">
           Already registered?
         </Link>
 

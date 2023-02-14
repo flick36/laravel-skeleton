@@ -16,11 +16,11 @@ const verificationLinkSent = $computed(() => status === 'verification-link-sent'
       <AuthenticationCardLogo />
     </template>
 
-    <div class="mb-4 text-sm text-gray-600">
+    <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
       Before continuing, could you verify your email address by clicking on the link we just emailed to you? If you didn't receive the email, we will gladly send you another.
     </div>
 
-    <div v-if="verificationLinkSent" class="mb-4 text-sm font-medium text-green-600">
+    <div v-if="verificationLinkSent" class="mb-4 text-sm font-medium text-green-600 dark:text-green-400">
       A new verification link has been sent to the email address you provided in your profile settings.
     </div>
 
@@ -33,7 +33,7 @@ const verificationLinkSent = $computed(() => status === 'verification-link-sent'
         <div>
           <Link
             href="/user/profile"
-            class="text-sm text-gray-600 underline hover:text-gray-900"
+            class="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:text-gray-400 dark:hover:text-gray-100 dark:focus:ring-offset-gray-800"
           >
             Edit Profile
           </Link>
@@ -42,7 +42,7 @@ const verificationLinkSent = $computed(() => status === 'verification-link-sent'
             href="/logout"
             method="post"
             as="button"
-            class="text-sm text-gray-600 underline hover:text-gray-900"
+            class="ml-2 rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:text-gray-400 dark:hover:text-gray-100 dark:focus:ring-offset-gray-800"
           >
             Log Out
           </Link>

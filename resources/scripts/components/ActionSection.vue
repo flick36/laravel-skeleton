@@ -10,7 +10,7 @@
     </SectionTitle>
 
     <div class="mt-5 md:col-span-2 md:mt-0">
-      <div class="bg-white py-5 px-4 shadow sm:rounded-lg sm:p-6">
+      <div class="bg-white py-5 px-4 shadow dark:bg-gray-800 sm:rounded-lg sm:p-6">
         <slot name="content" />
       </div>
     </div>

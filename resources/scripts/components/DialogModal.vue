@@ -24,16 +24,16 @@ const close = () => emit('close')
     @close="close"
   >
     <div class="py-4 px-6">
-      <div class="text-lg">
+      <div class="text-lg font-medium text-gray-900 dark:text-gray-100">
         <slot name="title" />
       </div>
 
-      <div class="mt-4">
+      <div class="mt-4 text-sm text-gray-600 dark:text-gray-400">
         <slot name="content" />
       </div>
     </div>
 
-    <div class="flex flex-row justify-end bg-gray-100 py-4 px-6 text-right">
+    <div class="flex flex-row justify-end bg-gray-100 py-4 px-6 text-right dark:bg-gray-800">
       <slot name="footer" />
     </div>
   </Modal>

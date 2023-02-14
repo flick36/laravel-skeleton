@@ -1,8 +1,8 @@
 <script setup lang="ts">
 let show = $ref(true)
 
-const style = $computed(() => usePage().props.value.jetstream.flash?.bannerStyle || 'success')
-const message = $computed(() => usePage().props.value.jetstream.flash?.banner || '')
+const style = $computed(() => usePage().props.jetstream.flash?.bannerStyle || 'success')
+const message = $computed(() => usePage().props.jetstream.flash?.banner || '')
 
 watch($$(message), async () => show = true)
 </script>
