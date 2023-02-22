@@ -134,7 +134,7 @@ const displayableRole = (role = '') => {
                 :key="role.key"
                 type="button"
                 class="relative inline-flex w-full rounded-lg px-4 py-3 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:border-indigo-600 dark:focus:ring-indigo-600"
-                :class="{ 'border-t border-gray-200 rounded-t-none dark:border-gray-700 focus:border-none': i > 0, 'rounded-b-none': i !== Object.keys(availableRoles).length - 1 }"
+                :class="{ 'rounded-t-none border-t border-gray-200 focus:border-none dark:border-gray-700': i > 0, 'rounded-b-none': i !== Object.keys(availableRoles).length - 1 }"
                 @click="addTeamMemberForm.role = role.key"
               >
                 <div :class="{ 'opacity-50': addTeamMemberForm.role && addTeamMemberForm.role !== role.key }">
@@ -284,7 +284,7 @@ const displayableRole = (role = '') => {
               :key="role.key"
               type="button"
               class="relative inline-flex w-full rounded-lg px-4 py-3 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:border-indigo-600 dark:focus:ring-indigo-600"
-              :class="{ 'border-t border-gray-200 dark:border-gray-700 focus:border-none rounded-t-none': i > 0, 'rounded-b-none': i !== Object.keys(availableRoles).length - 1 }"
+              :class="{ 'rounded-t-none border-t border-gray-200 focus:border-none dark:border-gray-700': i > 0, 'rounded-b-none': i !== Object.keys(availableRoles).length - 1 }"
               @click="updateRoleForm.role = role.key"
             >
               <div :class="{ 'opacity-50': updateRoleForm.role && updateRoleForm.role !== role.key }">
