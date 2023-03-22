@@ -11,13 +11,7 @@
     "target": "ESNext",
     "lib": ["DOM", "ESNext"],
     "strict": true,
-    // Required in Vite
-    "isolatedModules": true,
-    // For `<script setup>`
-    // See <https://devblogs.microsoft.com/typescript/announcing-typescript-4-5-beta/#preserve-value-imports>
-    "preserveValueImports": true,
-    // Enforce using `import type` instead of `import` for types
-    "importsNotUsedAsValues": "error",
+    "verbatimModuleSyntax": true,
     // Recommended
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
